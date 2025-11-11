@@ -1,0 +1,13 @@
+# Core ML
+tensorflow-macos==2.13.0
+keras==2.13.1
+
+# ONNX conversion
+tf2onnx==1.16.1
+onnx==1.17.0
+numpy==1.24.3
+
+# Data handling / metrics
+pandas==2.3.3
+scikit-learn==1.7.2
+scipy==1.15.3

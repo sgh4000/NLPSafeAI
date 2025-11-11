@@ -74,7 +74,11 @@ if __name__ == '__main__':
     print(f"Base model accuracy: {acc:.3f}")
 
     # Save base model to onnx file
-    # save_onnx(model_base, "base_model.onnx")
+    # save_onnx(model_base)
+
+    # Save the base model to a keras file
+
+    model_base.save("model_base.h5")
 
 
 
