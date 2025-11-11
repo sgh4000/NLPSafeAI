@@ -15,12 +15,7 @@ try:
 except Exception:
     pass
 
-from sklearn.model_selection import train_test_split
-from pca_analysis import pca_graph
-# from sentence_transformers import SentenceTransformer
-# from sklearn.decomposition import PCA
-# from train import train_base_model
-# from save_onnx import save_onnx
+# from pca_analysis import pca_graph
 
 
 if __name__ == '__main__':
@@ -35,7 +30,7 @@ if __name__ == '__main__':
     # Set up variables which will be used
     n_components = 30
     batch_size = 64
-    epochs = 6
+    epochs = 30
     n_classes = 2
     pgd_steps = 5
     epsilon = 0.3
