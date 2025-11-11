@@ -1,87 +1,89 @@
-import kagglehub
-from kagglehub import KaggleDatasetAdapter
 import pandas as pd
-from load_data import load_data_kaggle
+import numpy as np
+from data import load_data, load_embeddings, load_pca, prepare_data_for_training, get_model
+from perturbations import create_perturbations
+from hyperrectangles import load_hyperrectangles
+from train import train_base, train_adversarial, save_model_in_onnx
+
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""   # force CPU
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"  # hide info/warn logs
+
+import tensorflow as tf
+try:
+    tf.config.set_visible_devices([], "GPU")  # extra safeguard
+except Exception:
+    pass
+
 from sklearn.model_selection import train_test_split
 from pca_analysis import pca_graph
-from sentence_transformers import SentenceTransformer
-import numpy as np
-import tensorflow as tf
-from sklearn.decomposition import PCA
-from train import train_base_model
+# from sentence_transformers import SentenceTransformer
+# from sklearn.decomposition import PCA
+# from train import train_base_model
 # from save_onnx import save_onnx
 
 
 if __name__ == '__main__':
 
-    # Set up variables which will be used
+    # Load data controller
+    load_saved_embeddings = True
+    load_saved_align_mat = True
+    load_saved_pca = True
+    load_saved_perturbations = True
+    load_saved_hyperrectangles = True
 
+    # Set up variables which will be used
+    n_components = 30
     batch_size = 64
     epochs = 6
     n_classes = 2
+    pgd_steps = 5
     epsilon = 0.3
     alpha = 0.1
     num_iter = 10
-    file_path = "depression_dataset_reddit_cleaned.csv"
+    pos_lable_1_neg_lable_0 = True
+    test_train_split_rate = 0.7
+    cosine_threshold = 0.6
+    seed = 42
+    from_logits = True
+
+    # Variables
+    path = 'datasets'
+    dataset_names = ['depression']
+    encoding_models = {'all-MiniLM-L6-v2': 'sbert22M'}
+    og_perturbation_name = 'original'
+    perturbation_names = ['character']
+    hyperrectangles_names = {'character': ['character']}
+
+    # Derived variables
+    dataset_name = dataset_names[0]
+    encoding_model = list(encoding_models.keys())[0]
+    encoding_model_name = encoding_models[encoding_model]
+    perturbation_name = perturbation_names[0]
+    hyperrectangles_name = list(hyperrectangles_names.keys())[0]
     
-    df = load_data_kaggle(file_path)
+    # Load the data and embed them
+    data_o = load_data(dataset_name, pos_lable_1_neg_lable_0, test_train_split_rate, path)
+    X_train_pos_embedded_o, X_train_neg_embedded_o, X_test_pos_embedded_o, X_test_neg_embedded_o, y_train_pos_o, y_train_neg_o, y_test_pos_o, y_test_neg_o = load_embeddings(dataset_name, encoding_model, encoding_model_name, og_perturbation_name, load_saved_embeddings, load_saved_align_mat, data_o, path)
 
-    depression_count = df['is_depression'].value_counts()
-    print(depression_count)
-
-    # Split into train/test
-    df_train, df_test = train_test_split(
-        df, test_size=0.2, random_state=42, stratify=df["is_depression"]
-    )
-
-    # Extract training features and labels if needed. Keeping raw for future analysis
-    X_train_raw = df_train["clean_text"].tolist()
-    y_train = df_train["is_depression"].values
-    X_test_raw = df_test["clean_text"].tolist()
-    y_test = df_test["is_depression"].values
-
-    # Optional - PCA analysis
-    pca_graph(X_train_raw,X_test_raw,"all-MiniLM-L6-v2")
-
-    encoding_model = "all-MiniLM-L6-v2"
-    encoder = SentenceTransformer(encoding_model)
-    n_components = 30
-    batch_size = 64
-
-    X_train = encoder.encode(X_train_raw, show_progress_bar=False)
-    X_test = encoder.encode(X_test_raw, show_progress_bar=False)
-
-    data = np.vstack([X_train])
-    # PCA data
-    data_pca = PCA(n_components=n_components).fit(data)
-
-    X_train = data_pca.transform(X_train)
-    X_test = data_pca.transform(X_test)
-
-    train_dataset = tf.data.Dataset.from_tensor_slices((X_train, y_train))
-    test_dataset = tf.data.Dataset.from_tensor_slices((X_test, y_test))
-
-    train_dataset = train_dataset.shuffle(buffer_size=1024).batch(batch_size)
-    test_dataset = test_dataset.batch(batch_size)
+    # Create pthe erturbations and embed them
+    data_p = create_perturbations(dataset_name, perturbation_name, data_o, path)
+    X_train_pos_embedded_p, X_train_neg_embedded_p, X_test_pos_embedded_p, X_test_neg_embedded_p, y_train_pos_p, y_train_neg_p, y_test_pos_p, y_test_neg_p = load_embeddings(dataset_name, encoding_model, encoding_model_name, perturbation_name, load_saved_perturbations, load_saved_align_mat, data=data_p, path=path)
     
-    input_size = X_train.shape[1]
+    # Prepare the data for training
+    X_train_pos, X_train_neg, X_test_pos, X_test_neg = load_pca(dataset_name, encoding_model_name, load_saved_pca, X_train_pos_embedded_o, X_train_neg_embedded_o, X_test_pos_embedded_o, X_test_neg_embedded_o, n_components, path=path)
+    train_dataset, test_dataset = prepare_data_for_training(X_train_pos, X_train_neg, X_test_pos, X_test_neg, y_train_pos_o, y_train_neg_o, y_test_pos_o, y_test_neg_o, batch_size)
 
-    model_base = train_base_model(input_size, train_dataset, test_dataset, epochs)
+   # Create the hyper-rectangles
+    hyperrectangles = load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, cosine_threshold, path=path)
 
-    loss, acc = model_base.evaluate(X_test, y_test, verbose=0)
+    model = get_model(n_components)
+    model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
+    save_model_in_onnx(model, "base")
 
-    print(f"Base model loss: {loss:.3f}")
-    print(f"Base model accuracy: {acc:.3f}")
-
-    # Save base model to onnx file
-    # save_onnx(model_base, "base_model.onnx")
-
-
-
-
-
-
-
-
+    model = get_model(n_components)
+    n_samples = int(len(X_train_pos))
+    model = train_adversarial(model, train_dataset, test_dataset, hyperrectangles, epochs, batch_size, n_samples, pgd_steps, seed=seed, from_logits=from_logits)
+    save_model_in_onnx(model, "adversarial")
 
 
