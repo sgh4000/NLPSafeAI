@@ -118,6 +118,16 @@ def prepare_data_for_training(X_train_pos, X_train_neg, X_test_pos, X_test_neg, 
     train_dataset = train_dataset.shuffle(buffer_size=1024).batch(batch_size)
     test_dataset = test_dataset.batch(batch_size)
 
+    data_to_save = {
+        "X_train": X_train,
+        "X_test": X_test,
+        "y_train": y_train,
+        "y_test": y_test
+    }
+
+    with open("data/train_test_data.pkl", "wb") as f:
+        pk.dump(data_to_save, f)
+
     return train_dataset, test_dataset
 
 
