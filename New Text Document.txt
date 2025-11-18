@@ -1,0 +1,15 @@
+# File names for the splits
+train_path = os.path.join(PROJECT_DIR, "train.csv")
+val_path   = os.path.join(PROJECT_DIR, "val.csv")
+test_path  = os.path.join(PROJECT_DIR, "test.csv")
+
+# Save each split as a CSV file (without row index)
+train_df.to_csv(train_path, index=False)
+val_df.to_csv(val_path, index=False)
+test_df.to_csv(test_path, index=False)
+
+print("Saved files:")
+print("Train:", train_path)
+print("Val  :", val_path)
+print("Test :", test_path)
+xdgsf
