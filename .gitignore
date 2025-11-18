@@ -1,0 +1,5 @@
+.venv/
+
+datasets/depression/embeddings/**
+datasets/depression/hyperrectangles/**
+datasets/depression/perturbations/**
