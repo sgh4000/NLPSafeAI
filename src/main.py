@@ -25,20 +25,19 @@ if __name__ == '__main__':
     load_saved_align_mat = True
     load_saved_pca = True
     load_saved_perturbations = True
-    load_saved_hyperrectangles = True
+    load_saved_hyperrectangles = False
 
     # Set up variables which will be used
     n_components = 30
     batch_size = 64
-    epochs = 30
+    epochs = 15
     n_classes = 2
     pgd_steps = 5
     epsilon = 0.3
-    alpha = 0.1
     num_iter = 10
     pos_lable_1_neg_lable_0 = True
     test_train_split_rate = 0.7
-    cosine_threshold = 0.6
+    cosine_threshold = 0.2
     seed = 42
     from_logits = True
 
@@ -60,21 +59,25 @@ if __name__ == '__main__':
     # Load the data and embed them
     data_o = load_data(dataset_name, pos_lable_1_neg_lable_0, test_train_split_rate, path)
     X_train_pos_embedded_o, X_train_neg_embedded_o, X_test_pos_embedded_o, X_test_neg_embedded_o, y_train_pos_o, y_train_neg_o, y_test_pos_o, y_test_neg_o = load_embeddings(dataset_name, encoding_model, encoding_model_name, og_perturbation_name, load_saved_embeddings, load_saved_align_mat, data_o, path)
+    print("Data loaded and the embeding is done. Data size: ", len(X_train_pos_embedded_o))
 
     # Create pthe erturbations and embed them
     data_p = create_perturbations(dataset_name, perturbation_name, data_o, path)
     X_train_pos_embedded_p, X_train_neg_embedded_p, X_test_pos_embedded_p, X_test_neg_embedded_p, y_train_pos_p, y_train_neg_p, y_test_pos_p, y_test_neg_p = load_embeddings(dataset_name, encoding_model, encoding_model_name, perturbation_name, load_saved_perturbations, load_saved_align_mat, data=data_p, path=path)
-    
+    print("Perturbation data created and the embeding is done. Data size: ", len(X_train_pos_embedded_p))
+
     # Prepare the data for training
     X_train_pos, X_train_neg, X_test_pos, X_test_neg = load_pca(dataset_name, encoding_model_name, load_saved_pca, X_train_pos_embedded_o, X_train_neg_embedded_o, X_test_pos_embedded_o, X_test_neg_embedded_o, n_components, path=path)
     train_dataset, test_dataset = prepare_data_for_training(X_train_pos, X_train_neg, X_test_pos, X_test_neg, y_train_pos_o, y_train_neg_o, y_test_pos_o, y_test_neg_o, batch_size)
+    print("Data is ready for training. Data size: ", len(train_dataset))
 
    # Create the hyper-rectangles
-    hyperrectangles = load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, cosine_threshold, path=path)
+    hyperrectangles = load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, epsilon, cosine_threshold, path=path)
+    print("Hyper rectangulars are loaded. Hyper rectangular size: ", len(hyperrectangles))
 
-    model = get_model(n_components)
-    model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
-    save_model_in_onnx(model, "base")
+    # model = get_model(n_components)
+    # model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
+    # save_model_in_onnx(model, "base")
 
     model = get_model(n_components)
     n_samples = int(len(X_train_pos))

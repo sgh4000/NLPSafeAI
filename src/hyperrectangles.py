@@ -89,7 +89,7 @@ def print_hyperrectangles_statistics(hyperrectangles, X_train_pos, X_test_pos, X
     return train_pos_percentage, test_pos_percentage, train_neg_percentage, test_neg_percentage, train_pos_n, test_pos_n, train_neg_n, test_neg_n
 
 
-def load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, eps=0.05, cosine_threshold=0.6, path='datasets'):
+def load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, eps, cosine_threshold, path='datasets'):
     if load_saved_hyperrectangles:
         # hyperrectangles = []
         # for h_n in hyperrectangles_name:
@@ -100,6 +100,8 @@ def load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name
         hyperrectangles = np.load(f'{PROJECT_ROOT}/{path}/{dataset_name}/hyperrectangles/{encoding_model_name}/{hyperrectangles_name}.npy')
 
     else:
+        print("\ncosine threshold is: ", cosine_threshold)
+        print("\nCreating new HR ...")
         save_path = f'{PROJECT_ROOT}/{path}/{dataset_name}/hyperrectangles/{encoding_model_name}'
         if not os.path.exists(save_path):
             os.makedirs(save_path)
