@@ -21,10 +21,10 @@ except Exception:
 if __name__ == '__main__':
 
     # Load data controller
-    load_saved_embeddings = True
-    load_saved_align_mat = True
-    load_saved_pca = True
-    load_saved_perturbations = True
+    load_saved_embeddings = False
+    load_saved_align_mat = False
+    load_saved_pca = False
+    load_saved_perturbations = False
     load_saved_hyperrectangles = False
 
     # Set up variables which will be used
@@ -75,9 +75,9 @@ if __name__ == '__main__':
     hyperrectangles = load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, epsilon, cosine_threshold, path=path)
     print("Hyper rectangulars are loaded. Hyper rectangular size: ", len(hyperrectangles))
 
-    # model = get_model(n_components)
-    # model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
-    # save_model_in_onnx(model, "base")
+    model = get_model(n_components)
+    model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
+    save_model_in_onnx(model, "base")
 
     model = get_model(n_components)
     n_samples = int(len(X_train_pos))
