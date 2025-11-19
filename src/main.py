@@ -97,7 +97,7 @@ if __name__ == '__main__':
     semantic_hyperrectangles_name = 'semantic'
 
     # 1) Create semantic perturbations
-    #    We reuse data_o (original data) and just ask for a new perturbation type.
+    #    reuse data_o (original data) and just ask for a new perturbation type.
     print("\n[SEMANTIC] Creating semantic perturbations...")
     data_semantic = create_perturbations(
         dataset_name,
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     )
 
     # 2) Compute embeddings for semantic perturbations
-    #    We set load_saved_embeddings=False the first time so they are generated.
+    #    set load_saved_embeddings=False the first time so they are generated.
     print("[SEMANTIC] Computing/loading embeddings for semantic perturbations...")
     _ = load_embeddings(
         dataset_name,
