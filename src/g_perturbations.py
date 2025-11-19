@@ -101,7 +101,7 @@ def semantic_perturbation(samples, max_changes_per_sentence=2, change_prob=0.6):
         original_text = str(text)
         tokens = _simple_tokenize(original_text.lower())
 
-        # 1) Small template-based rephrasing (Option B):
+        # 1) Small template-based rephrasing:
         # If the sentence begins with patterns like "i feel", "i am", we slightly rephrase.
         lowered = original_text.lower().strip()
         template_applied = False
@@ -119,7 +119,7 @@ def semantic_perturbation(samples, max_changes_per_sentence=2, change_prob=0.6):
             tokens = _simple_tokenize(original_text.lower())
             template_applied = True
 
-        # 2) Synonym replacement using DEPRESSION_SEMANTIC_DICT (Option A):
+        # 2) Synonym replacement using DEPRESSION_SEMANTIC_DICT:
         # We go through each token and sometimes replace it with a similar word.
         changed = False
         changes_done = 0
@@ -152,6 +152,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
         perturbations = [char_swapping, char_replacement, char_deletion, char_insertion, char_repetition]
     elif perturbation == 'word':
         perturbations = [word_deletion, word_repetition, word_negation, word_ordering, word_singular_plural_verb, word_verb_tense]
+    elif perturbation == 'semantic':
+        # For semantic, we only need our new semantic_perturbation function.
+        perturbations = [semantic_perturbation]    
     seed(42)
 
     path_sentences = f'{PROJECT_ROOT}/{path}/{datasaet_name}/perturbations/{perturbation}/sentences'
@@ -162,7 +165,7 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
     if not os.path.exists(path_indexes):
         os.makedirs(path_indexes)
 
-    if perturbation == 'character' or perturbation == 'word':
+    if perturbation == 'character' or perturbation == 'word' or perturbation == 'semantic':
         # Train positive
         X_train_pos_perturbed = []
         y_train_pos_perturbed = []
@@ -171,7 +174,7 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
             for perturbation in perturbations:
                 p_perturbed = perturbation([data[0][i]])
                 X_train_pos_perturbed.append(p_perturbed[0])
-                y_train_pos_perturbed.append(data[4][i])
+                y_train_pos_perturbed.append(data[4][i]) # or your label index
                 train_pos_index.append(i)
         np.save(f'{path_sentences}/X_train_pos.npy', X_train_pos_perturbed)
         np.save(f'{path_sentences}/y_train_pos.npy', y_train_pos_perturbed)
