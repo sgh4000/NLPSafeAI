@@ -89,8 +89,6 @@ if __name__ == '__main__':
     # ------------------------------------------------------------
     # SEMANTIC perturbations + hyperrectangles
     # ------------------------------------------------------------
-
-    # We will:
     # 1. Create SEMANTIC perturbations (using semantic_perturbation in perturbations.py)
     # 2. Compute embeddings for these semantic perturbations
     # 3. Build SEMANTIC hyperrectangles, saved as 'semantic.npy'
