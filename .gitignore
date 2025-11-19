@@ -3,3 +3,6 @@
 datasets/depression/embeddings/**
 datasets/depression/hyperrectangles/**
 datasets/depression/perturbations/**
+
+depression_dataset_reddit_cleaned.csv
+Ghofran_F21ZK_FinalProject.ipynb
