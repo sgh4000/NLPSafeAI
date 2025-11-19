@@ -87,6 +87,66 @@ def _simple_detokenize(tokens):
     return text
 
 
+def semantic_perturbation(samples, max_changes_per_sentence=2, change_prob=0.6):
+    """
+    Create semantic perturbations:
+    - Replace some depression-related words with similar ones (from DEPRESSION_SEMANTIC_DICT).
+    - Optionally apply a tiny template rephrasing for sentences that start with 'I feel', 'I am', etc.
+    Input: samples = list/array of strings.
+    Output: numpy array of perturbed strings, same length as input.
+    """
+    new_sentences = []
+
+    for text in samples:
+        original_text = str(text)
+        tokens = _simple_tokenize(original_text.lower())
+
+        # 1) Small template-based rephrasing (Option B):
+        # If the sentence begins with patterns like "i feel", "i am", we slightly rephrase.
+        lowered = original_text.lower().strip()
+        template_applied = False
+        if lowered.startswith("i feel "):
+            # e.g., "I feel sad" -> "I have been feeling sad lately"
+            rest = original_text[7:]  # after "I feel "
+            original_text = "I have been feeling " + rest.strip() + " lately."
+            tokens = _simple_tokenize(original_text.lower())
+            template_applied = True
+        elif lowered.startswith("i am ") or lowered.startswith("i'm "):
+            # e.g., "I am exhausted" -> "I have been feeling exhausted"
+            # Keep it very simple:
+            rest = original_text.split(" ", 2)[2] if len(original_text.split(" ", 2)) == 3 else ""
+            original_text = "I have been feeling " + rest.strip()
+            tokens = _simple_tokenize(original_text.lower())
+            template_applied = True
+
+        # 2) Synonym replacement using DEPRESSION_SEMANTIC_DICT (Option A):
+        # We go through each token and sometimes replace it with a similar word.
+        changed = False
+        changes_done = 0
+        rng = np.random.default_rng()
+
+        for i, tok in enumerate(tokens):
+            # Only try to replace if token is alphabetic and in our dictionary
+            if tok.isalpha() and tok in DEPRESSION_SEMANTIC_DICT:
+                if changes_done < max_changes_per_sentence and rng.random() < change_prob:
+                    synonyms = DEPRESSION_SEMANTIC_DICT[tok]
+                    if len(synonyms) > 0:
+                        new_tok = rng.choice(synonyms)
+                        tokens[i] = new_tok
+                        changed = True
+                        changes_done += 1
+
+        # If nothing changed at all, keep original text
+        if not changed and not template_applied:
+            perturbed_text = original_text
+        else:
+            perturbed_text = _simple_detokenize(tokens)
+
+        new_sentences.append(perturbed_text)
+
+    return np.array(new_sentences)
+
+
 def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
     if perturbation == 'character':
         perturbations = [char_swapping, char_replacement, char_deletion, char_insertion, char_repetition]
