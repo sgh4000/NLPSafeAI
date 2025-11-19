@@ -24,8 +24,10 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # --------- Semantic dictionary for depression-related words ---------
-# These come from the paper/table your TA shared (C1–C9).
-# You can extend this list later if you want.
+# These come from: Oh, J., Lim, J., & Oh, H. (2026). Clinically 
+# validated depression dataset aligned with DSM-5 criteria for 
+# major depressive disorder (MDD). Expert Systems With Applications, 296, 128691.
+# https://doi.org/10.1016/j.eswa.2025.128691
 
 DEPRESSION_SEMANTIC_DICT = {
     # C1 – depressed mood
