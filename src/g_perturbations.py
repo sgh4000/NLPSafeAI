@@ -23,6 +23,70 @@ except Exception:
 from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
+# --------- Semantic dictionary for depression-related words ---------
+# These come from the paper/table your TA shared (C1–C9).
+# You can extend this list later if you want.
+
+DEPRESSION_SEMANTIC_DICT = {
+    # C1 – depressed mood
+    "depressed": ["sad", "unhappy", "down", "moody", "low"],
+    "lonely": ["isolated", "alone", "by_myself"],
+    "unhappy": ["miserable", "sad", "down"],
+
+    # C2 – loss of interest / pleasure
+    "interest": ["enjoyment", "passion", "enthusiasm"],
+    "interested": ["engaged", "motivated"],
+    "pleasure": ["joy", "satisfaction", "happiness"],
+
+    # C3 / C4 – sleep / appetite / fatigue (a few examples)
+    "sleep": ["sleeping", "sleepiness", "insomnia"],
+    "tired": ["exhausted", "drained", "fatigued"],
+    "appetite": ["hunger", "desire_to_eat"],
+
+    # C5 / C6 – agitation / fatigue
+    "restless": ["agitated", "unable_to_relax"],
+    "lethargic": ["sluggish", "exhausted"],
+
+    # C7 – worthlessness / guilt
+    "worthless": ["useless", "unlovable", "pathetic"],
+    "guilty": ["ashamed", "full_of_regret"],
+
+    # C8 – concentration / indecision
+    "concentrate": ["focus", "pay_attention"],
+    "confused": ["uncertain", "lost"],
+
+    # C9 – suicidal
+    "suicidal": ["want_to_die", "want_to_disappear"],
+    "die": ["disappear", "not_exist_anymore"],
+}
+
+# --------- Helper: simple tokenization and joining ---------
+import re
+
+def _simple_tokenize(text):
+    """
+    Very simple tokenizer: split words and punctuation.
+    """
+    return re.findall(r"\w+|[^\w\s]", text)
+
+def _simple_detokenize(tokens):
+    """
+    Join tokens back into a string.
+    This is simple and may add spaces before punctuation sometimes, but it's OK for our use.
+    """
+    text = ""
+    for i, tok in enumerate(tokens):
+        if i == 0:
+            text += tok
+        else:
+            # No space before punctuation, space otherwise
+            if re.match(r"[.,!?;:]", tok):
+                text += tok
+            else:
+                text += " " + tok
+    return text
+
+
 def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
     if perturbation == 'character':
         perturbations = [char_swapping, char_replacement, char_deletion, char_insertion, char_repetition]
