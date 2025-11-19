@@ -21,6 +21,8 @@ except Exception:
 if __name__ == '__main__':
 
     # Load data controller
+    # First time running the code, set all to True to generate and save all necessary files
+    # Afterwards, set to False to load saved files
     load_saved_embeddings = True
     load_saved_align_mat = True
     load_saved_pca = True
