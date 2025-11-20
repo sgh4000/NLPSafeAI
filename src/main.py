@@ -28,6 +28,10 @@ if __name__ == '__main__':
     load_saved_pca = True
     load_saved_perturbations = True
     load_saved_hyperrectangles = True
+    # Control what to run (to save time)
+    RUN_BASE_TRAINING = False
+    RUN_ADVERSARIAL_TRAINING = False
+
 
     # Set up variables which will be used
     n_components = 30
@@ -73,18 +77,53 @@ if __name__ == '__main__':
     train_dataset, test_dataset = prepare_data_for_training(X_train_pos, X_train_neg, X_test_pos, X_test_neg, y_train_pos_o, y_train_neg_o, y_test_pos_o, y_test_neg_o, batch_size)
     print("Data is ready for training. Data size: ", len(train_dataset))
 
-   # Create the hyper-rectangles
-    hyperrectangles = load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, epsilon, cosine_threshold, path=path)
-    print("Hyper rectangulars are loaded. Hyper rectangular size: ", len(hyperrectangles))
+    # Create the hyper-rectangles (needed for adversarial training)
+    if RUN_ADVERSARIAL_TRAINING:
+        hyperrectangles = load_hyperrectangles(
+            dataset_name,
+            encoding_model_name,
+            hyperrectangles_name,
+            load_saved_hyperrectangles,
+            epsilon,
+            cosine_threshold,
+            path=path
+        )
+        print("Hyper rectangulars are loaded. Hyper rectangular size: ", len(hyperrectangles))
 
-    model = get_model(n_components)
-    model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
-    save_model_in_onnx(model, "base")
 
-    model = get_model(n_components)
-    n_samples = int(len(X_train_pos))
-    model = train_adversarial(model, train_dataset, test_dataset, hyperrectangles, epochs, batch_size, n_samples, pgd_steps, seed=seed, from_logits=from_logits)
-    save_model_in_onnx(model, "adversarial")
+    # ------------------------------------------------------------
+    # BASE training
+    # ------------------------------------------------------------
+    if RUN_BASE_TRAINING:
+        model = get_model(n_components)
+        model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
+        save_model_in_onnx(model, "base")
+    else:
+        print("[INFO] Skipping base training (using existing base.onnx if already saved).")
+
+
+    # ------------------------------------------------------------
+    # ADVERSARIAL training + hyperrectangles
+    # ------------------------------------------------------------    
+    if RUN_ADVERSARIAL_TRAINING:
+        model = get_model(n_components)
+        n_samples = int(len(X_train_pos))
+        model = train_adversarial(
+            model,
+            train_dataset,
+            test_dataset,
+            hyperrectangles,
+            epochs,
+            batch_size,
+            n_samples,
+            pgd_steps,
+            seed=seed,
+            from_logits=from_logits
+        )
+        save_model_in_onnx(model, "adversarial")
+    else:
+        print("[INFO] Skipping adversarial training (using existing adversarial.onnx if already saved).")
+
 
     # ------------------------------------------------------------
     # SEMANTIC perturbations + hyperrectangles
@@ -114,7 +153,7 @@ if __name__ == '__main__':
         encoding_model,
         encoding_model_name,
         semantic_perturbation_name,
-        load_saved_embeddings=True,      # set to False the first time
+        load_saved_embeddings=False,      # set to False the first time
         load_saved_align_mat=load_saved_align_mat,
         data=data_semantic,
         path=path
@@ -132,10 +171,11 @@ if __name__ == '__main__':
         encoding_model_name,
         semantic_hyperrectangles_name,
         load_saved_hyperrectangles=False,  # set to False the first time
-        epsilon=epsilon,
+        eps=epsilon,
         cosine_threshold=cosine_threshold,
         path=path
     )
+
 
     try:
         print("[SEMANTIC] Semantic hyperrectangles shape:", semantic_hyperrectangles.shape)
