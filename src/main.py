@@ -21,13 +21,13 @@ except Exception:
 if __name__ == '__main__':
 
     # Load data controller
-    # First time running the code, set all to True to generate and save all necessary files
-    # Afterwards, set to False to load saved files
+    # First time running the code, set all to False to generate and save all necessary files
+    # Afterwards, set to True to load saved files
     load_saved_embeddings = True
     load_saved_align_mat = True
     load_saved_pca = True
     load_saved_perturbations = True
-    load_saved_hyperrectangles = False
+    load_saved_hyperrectangles = True
 
     # Set up variables which will be used
     n_components = 30
@@ -114,7 +114,7 @@ if __name__ == '__main__':
         encoding_model,
         encoding_model_name,
         semantic_perturbation_name,
-        load_saved_embeddings=False,      # first run: force computation for 'semantic'
+        load_saved_embeddings=True,      # set to False the first time
         load_saved_align_mat=load_saved_align_mat,
         data=data_semantic,
         path=path
@@ -131,7 +131,8 @@ if __name__ == '__main__':
         dataset_name,
         encoding_model_name,
         semantic_hyperrectangles_name,
-        load_saved_hyperrectangles=False,  # first run: create 'semantic.npy'
+        load_saved_hyperrectangles=False,  # set to False the first time
+        epsilon=epsilon,
         cosine_threshold=cosine_threshold,
         path=path
     )
