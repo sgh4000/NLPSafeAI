@@ -153,11 +153,12 @@ if __name__ == '__main__':
         encoding_model,
         encoding_model_name,
         semantic_perturbation_name,
-        load_saved_embeddings=False,      # set to False the first time
+        load_saved_embeddings=True,      # set to False the first time
         load_saved_align_mat=load_saved_align_mat,
         data=data_semantic,
         path=path
     )
+    print("[SEMANTIC] Done semantic embeddings.")
 
     # 3) Build semantic hyperrectangles
     #    hyperrectangles.py will:
@@ -170,7 +171,7 @@ if __name__ == '__main__':
         dataset_name,
         encoding_model_name,
         semantic_hyperrectangles_name,
-        load_saved_hyperrectangles=False,  # set to False the first time
+        load_saved_hyperrectangles=True,  # set to False the first time
         eps=epsilon,
         cosine_threshold=cosine_threshold,
         path=path
