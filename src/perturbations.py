@@ -178,6 +178,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
                 X_train_pos_perturbed.append(p_perturbed[0])
                 y_train_pos_perturbed.append(data[4][i]) # or your label index
                 train_pos_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Train POS perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_train_pos.npy', X_train_pos_perturbed)
         np.save(f'{path_sentences}/y_train_pos.npy', y_train_pos_perturbed)
         np.save(f'{path_indexes}/train_pos_indexes.npy', train_pos_index)
@@ -192,6 +195,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
                 X_train_neg_perturbed.append(p_perturbed[0])
                 y_train_neg_perturbed.append(data[5][i])
                 train_neg_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Train NEG perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_train_neg.npy', X_train_neg_perturbed)
         np.save(f'{path_sentences}/y_train_neg.npy', y_train_neg_perturbed)
         np.save(f'{path_indexes}/train_neg_indexes.npy', train_neg_index)
@@ -206,6 +212,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
                 X_test_pos_perturbed.append(p_perturbed[0])
                 y_test_pos_perturbed.append(data[6][i])
                 test_pos_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Test POS perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_test_pos.npy', X_test_pos_perturbed)
         np.save(f'{path_sentences}/y_test_pos.npy', y_test_pos_perturbed)
         np.save(f'{path_indexes}/test_pos_indexes.npy', test_pos_index)
@@ -220,6 +229,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
                 X_test_neg_perturbed.append(p_perturbed[0])
                 y_test_neg_perturbed.append(data[7][i])
                 test_neg_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Test NEG perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_test_neg.npy', X_test_neg_perturbed)
         np.save(f'{path_sentences}/y_test_neg.npy', y_test_neg_perturbed)
         np.save(f'{path_indexes}/test_neg_indexes.npy', test_neg_index)
