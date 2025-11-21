@@ -23,11 +23,140 @@ except Exception:
 from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
+# --------- Semantic dictionary for depression-related words ---------
+# These come from: Oh, J., Lim, J., & Oh, H. (2026). Clinically 
+# validated depression dataset aligned with DSM-5 criteria for 
+# major depressive disorder (MDD). Expert Systems With Applications, 296, 128691.
+# https://doi.org/10.1016/j.eswa.2025.128691
+
+DEPRESSION_SEMANTIC_DICT = {
+    # C1 – depressed mood
+    "depressed": ["sad", "unhappy", "down", "moody", "low"],
+    "lonely": ["isolated", "alone", "by_myself"],
+    "unhappy": ["miserable", "sad", "down"],
+
+    # C2 – loss of interest / pleasure
+    "interest": ["enjoyment", "passion", "enthusiasm"],
+    "interested": ["engaged", "motivated"],
+    "pleasure": ["joy", "satisfaction", "happiness"],
+
+    # C3 / C4 – sleep / appetite / fatigue (a few examples)
+    "sleep": ["sleeping", "sleepiness", "insomnia"],
+    "tired": ["exhausted", "drained", "fatigued"],
+    "appetite": ["hunger", "desire_to_eat"],
+
+    # C5 / C6 – agitation / fatigue
+    "restless": ["agitated", "unable_to_relax"],
+    "lethargic": ["sluggish", "exhausted"],
+
+    # C7 – worthlessness / guilt
+    "worthless": ["useless", "unlovable", "pathetic"],
+    "guilty": ["ashamed", "full_of_regret"],
+
+    # C8 – concentration / indecision
+    "concentrate": ["focus", "pay_attention"],
+    "confused": ["uncertain", "lost"],
+
+    # C9 – suicidal
+    "suicidal": ["want_to_die", "want_to_disappear"],
+    "die": ["disappear", "not_exist_anymore"],
+}
+
+# --------- Helper: simple tokenization and joining ---------
+import re
+
+def _simple_tokenize(text):
+    """
+    Very simple tokenizer: split words and punctuation.
+    """
+    return re.findall(r"\w+|[^\w\s]", text)
+
+def _simple_detokenize(tokens):
+    """
+    Join tokens back into a string.
+    This is simple and may add spaces before punctuation sometimes, but it's OK for our use.
+    """
+    text = ""
+    for i, tok in enumerate(tokens):
+        if i == 0:
+            text += tok
+        else:
+            # No space before punctuation, space otherwise
+            if re.match(r"[.,!?;:]", tok):
+                text += tok
+            else:
+                text += " " + tok
+    return text
+
+
+def semantic_perturbation(samples, max_changes_per_sentence=2, change_prob=0.6):
+    """
+    Create semantic perturbations:
+    - Replace some depression-related words with similar ones (from DEPRESSION_SEMANTIC_DICT).
+    - Optionally apply a tiny template rephrasing for sentences that start with 'I feel', 'I am', etc.
+    Input: samples = list/array of strings.
+    Output: numpy array of perturbed strings, same length as input.
+    """
+    new_sentences = []
+
+    for text in samples:
+        original_text = str(text)
+        tokens = _simple_tokenize(original_text.lower())
+
+        # 1) Small template-based rephrasing:
+        # If the sentence begins with patterns like "i feel", "i am", we slightly rephrase.
+        lowered = original_text.lower().strip()
+        template_applied = False
+        if lowered.startswith("i feel "):
+            # e.g., "I feel sad" -> "I have been feeling sad lately"
+            rest = original_text[7:]  # after "I feel "
+            original_text = "I have been feeling " + rest.strip() + " lately."
+            tokens = _simple_tokenize(original_text.lower())
+            template_applied = True
+        elif lowered.startswith("i am ") or lowered.startswith("i'm "):
+            # e.g., "I am exhausted" -> "I have been feeling exhausted"
+            # Keep it very simple:
+            rest = original_text.split(" ", 2)[2] if len(original_text.split(" ", 2)) == 3 else ""
+            original_text = "I have been feeling " + rest.strip()
+            tokens = _simple_tokenize(original_text.lower())
+            template_applied = True
+
+        # 2) Synonym replacement using DEPRESSION_SEMANTIC_DICT:
+        # We go through each token and sometimes replace it with a similar word.
+        changed = False
+        changes_done = 0
+        rng = np.random.default_rng()
+
+        for i, tok in enumerate(tokens):
+            # Only try to replace if token is alphabetic and in our dictionary
+            if tok.isalpha() and tok in DEPRESSION_SEMANTIC_DICT:
+                if changes_done < max_changes_per_sentence and rng.random() < change_prob:
+                    synonyms = DEPRESSION_SEMANTIC_DICT[tok]
+                    if len(synonyms) > 0:
+                        new_tok = rng.choice(synonyms)
+                        tokens[i] = new_tok
+                        changed = True
+                        changes_done += 1
+
+        # If nothing changed at all, keep original text
+        if not changed and not template_applied:
+            perturbed_text = original_text
+        else:
+            perturbed_text = _simple_detokenize(tokens)
+
+        new_sentences.append(perturbed_text)
+
+    return np.array(new_sentences)
+
+
 def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
     if perturbation == 'character':
         perturbations = [char_swapping, char_replacement, char_deletion, char_insertion, char_repetition]
     elif perturbation == 'word':
         perturbations = [word_deletion, word_repetition, word_negation, word_ordering, word_singular_plural_verb, word_verb_tense]
+    elif perturbation == 'semantic':
+        # For semantic, we only need our new semantic_perturbation function.
+        perturbations = [semantic_perturbation]    
     seed(42)
 
     path_sentences = f'{PROJECT_ROOT}/{path}/{datasaet_name}/perturbations/{perturbation}/sentences'
@@ -38,7 +167,7 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
     if not os.path.exists(path_indexes):
         os.makedirs(path_indexes)
 
-    if perturbation == 'character' or perturbation == 'word':
+    if perturbation == 'character' or perturbation == 'word' or perturbation == 'semantic':
         # Train positive
         X_train_pos_perturbed = []
         y_train_pos_perturbed = []
@@ -47,8 +176,11 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
             for perturbation in perturbations:
                 p_perturbed = perturbation([data[0][i]])
                 X_train_pos_perturbed.append(p_perturbed[0])
-                y_train_pos_perturbed.append(data[4][i])
+                y_train_pos_perturbed.append(data[4][i]) # or your label index
                 train_pos_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Train POS perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_train_pos.npy', X_train_pos_perturbed)
         np.save(f'{path_sentences}/y_train_pos.npy', y_train_pos_perturbed)
         np.save(f'{path_indexes}/train_pos_indexes.npy', train_pos_index)
@@ -63,6 +195,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
                 X_train_neg_perturbed.append(p_perturbed[0])
                 y_train_neg_perturbed.append(data[5][i])
                 train_neg_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Train NEG perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_train_neg.npy', X_train_neg_perturbed)
         np.save(f'{path_sentences}/y_train_neg.npy', y_train_neg_perturbed)
         np.save(f'{path_indexes}/train_neg_indexes.npy', train_neg_index)
@@ -77,6 +212,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
                 X_test_pos_perturbed.append(p_perturbed[0])
                 y_test_pos_perturbed.append(data[6][i])
                 test_pos_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Test POS perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_test_pos.npy', X_test_pos_perturbed)
         np.save(f'{path_sentences}/y_test_pos.npy', y_test_pos_perturbed)
         np.save(f'{path_indexes}/test_pos_indexes.npy', test_pos_index)
@@ -91,6 +229,9 @@ def create_perturbations(datasaet_name, perturbation, data, path='datasets'):
                 X_test_neg_perturbed.append(p_perturbed[0])
                 y_test_neg_perturbed.append(data[7][i])
                 test_neg_index.append(i)
+            # Add a tiny progress print    
+            if i % 100 == 0:
+                print(f"Test NEG perturbations: {i}/{len(data[0])}")
         np.save(f'{path_sentences}/X_test_neg.npy', X_test_neg_perturbed)
         np.save(f'{path_sentences}/y_test_neg.npy', y_test_neg_perturbed)
         np.save(f'{path_indexes}/test_neg_indexes.npy', test_neg_index)

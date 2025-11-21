@@ -21,11 +21,17 @@ except Exception:
 if __name__ == '__main__':
 
     # Load data controller
+    # First time running the code, set all to False to generate and save all necessary files
+    # Afterwards, set to True to load saved files
     load_saved_embeddings = True
     load_saved_align_mat = True
     load_saved_pca = True
     load_saved_perturbations = True
-    load_saved_hyperrectangles = False
+    load_saved_hyperrectangles = True
+    # Control what to run (to save time)
+    RUN_BASE_TRAINING = False
+    RUN_ADVERSARIAL_TRAINING = False
+
 
     # Set up variables which will be used
     n_components = 30
@@ -71,17 +77,112 @@ if __name__ == '__main__':
     train_dataset, test_dataset = prepare_data_for_training(X_train_pos, X_train_neg, X_test_pos, X_test_neg, y_train_pos_o, y_train_neg_o, y_test_pos_o, y_test_neg_o, batch_size)
     print("Data is ready for training. Data size: ", len(train_dataset))
 
-   # Create the hyper-rectangles
-    hyperrectangles = load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name, load_saved_hyperrectangles, epsilon, cosine_threshold, path=path)
-    print("Hyper rectangulars are loaded. Hyper rectangular size: ", len(hyperrectangles))
+    # Create the hyper-rectangles (needed for adversarial training)
+    if RUN_ADVERSARIAL_TRAINING:
+        hyperrectangles = load_hyperrectangles(
+            dataset_name,
+            encoding_model_name,
+            hyperrectangles_name,
+            load_saved_hyperrectangles,
+            epsilon,
+            cosine_threshold,
+            path=path
+        )
+        print("Hyper rectangulars are loaded. Hyper rectangular size: ", len(hyperrectangles))
 
-    # model = get_model(n_components)
-    # model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
-    # save_model_in_onnx(model, "base")
 
-    model = get_model(n_components)
-    n_samples = int(len(X_train_pos))
-    model = train_adversarial(model, train_dataset, test_dataset, hyperrectangles, epochs, batch_size, n_samples, pgd_steps, seed=seed, from_logits=from_logits)
-    save_model_in_onnx(model, "adversarial")
+    # ------------------------------------------------------------
+    # BASE training
+    # ------------------------------------------------------------
+    if RUN_BASE_TRAINING:
+        model = get_model(n_components)
+        model = train_base(model, train_dataset, test_dataset, epochs, seed=seed, from_logits=from_logits)
+        save_model_in_onnx(model, "base")
+    else:
+        print("[INFO] Skipping base training (using existing base.onnx if already saved).")
+
+
+    # ------------------------------------------------------------
+    # ADVERSARIAL training + hyperrectangles
+    # ------------------------------------------------------------    
+    if RUN_ADVERSARIAL_TRAINING:
+        model = get_model(n_components)
+        n_samples = int(len(X_train_pos))
+        model = train_adversarial(
+            model,
+            train_dataset,
+            test_dataset,
+            hyperrectangles,
+            epochs,
+            batch_size,
+            n_samples,
+            pgd_steps,
+            seed=seed,
+            from_logits=from_logits
+        )
+        save_model_in_onnx(model, "adversarial")
+    else:
+        print("[INFO] Skipping adversarial training (using existing adversarial.onnx if already saved).")
+
+
+    # ------------------------------------------------------------
+    # SEMANTIC perturbations + hyperrectangles
+    # ------------------------------------------------------------
+    # 1. Create SEMANTIC perturbations (using semantic_perturbation in perturbations.py)
+    # 2. Compute embeddings for these semantic perturbations
+    # 3. Build SEMANTIC hyperrectangles, saved as 'semantic.npy'
+
+    semantic_perturbation_name = 'semantic'
+    semantic_hyperrectangles_name = 'semantic'
+
+    # 1) Create semantic perturbations
+    #    reuse data_o (original data) and just ask for a new perturbation type.
+    print("\n[SEMANTIC] Creating semantic perturbations...")
+    data_semantic = create_perturbations(
+        dataset_name,
+        semantic_perturbation_name,
+        data_o,
+        path=path
+    )
+
+    # 2) Compute embeddings for semantic perturbations
+    #    set load_saved_embeddings=False the first time so they are generated.
+    print("[SEMANTIC] Computing/loading embeddings for semantic perturbations...")
+    _ = load_embeddings(
+        dataset_name,
+        encoding_model,
+        encoding_model_name,
+        semantic_perturbation_name,
+        load_saved_embeddings=True,      # set to False the first time
+        load_saved_align_mat=load_saved_align_mat,
+        data=data_semantic,
+        path=path
+    )
+    print("[SEMANTIC] Done semantic embeddings.")
+
+    # 3) Build semantic hyperrectangles
+    #    hyperrectangles.py will:
+    #      - load PCA
+    #      - load original + semantic embeddings
+    #      - group perturbations by original index
+    #      - build min/max boxes in PCA space
+    print("[SEMANTIC] Building semantic hyperrectangles...")
+    semantic_hyperrectangles = load_hyperrectangles(
+        dataset_name,
+        encoding_model_name,
+        semantic_hyperrectangles_name,
+        load_saved_hyperrectangles=True,  # set to False the first time
+        eps=epsilon,
+        cosine_threshold=cosine_threshold,
+        path=path
+    )
+
+
+    try:
+        print("[SEMANTIC] Semantic hyperrectangles shape:", semantic_hyperrectangles.shape)
+    except Exception:
+        print("[SEMANTIC] Semantic hyperrectangles created (shape unknown type).")
+
+    print("[SEMANTIC] Done. Semantic hyperrectangles saved (semantic.npy).")
 
 
