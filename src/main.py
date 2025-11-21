@@ -196,8 +196,9 @@ if __name__ == '__main__':
         hyperrectangles_name=semantic_hyperrectangles_name,  # 'semantic'
         base_onnx_path=os.path.join("results", "base.onnx"),
         adv_onnx_path=os.path.join("results", "adversarial.onnx"),
-        num_samples_per_hr=10,
+        num_samples_per_hr=10, # number of samples per hyperrectangle, 30 for sanity check
         random_seed=seed,
+        # max_hr=200               # for a quicker sanity-check evaluation
     )
 
 
