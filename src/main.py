@@ -4,6 +4,8 @@ from data import load_data, load_embeddings, load_pca, prepare_data_for_training
 from perturbations import create_perturbations
 from hyperrectangles import load_hyperrectangles
 from train import train_base, train_adversarial, save_model_in_onnx
+from semantic_eval import evaluate_semantic_stability 
+
 
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""   # force CPU
@@ -131,6 +133,7 @@ if __name__ == '__main__':
     # 1. Create SEMANTIC perturbations (using semantic_perturbation in perturbations.py)
     # 2. Compute embeddings for these semantic perturbations
     # 3. Build SEMANTIC hyperrectangles, saved as 'semantic.npy'
+    # 4. Evaluate semantic robustness
 
     semantic_perturbation_name = 'semantic'
     semantic_hyperrectangles_name = 'semantic'
@@ -177,12 +180,25 @@ if __name__ == '__main__':
         path=path
     )
 
-
     try:
         print("[SEMANTIC] Semantic hyperrectangles shape:", semantic_hyperrectangles.shape)
     except Exception:
         print("[SEMANTIC] Semantic hyperrectangles created (shape unknown type).")
 
     print("[SEMANTIC] Done. Semantic hyperrectangles saved (semantic.npy).")
+
+    # 4) Evaluate semantic robustness of base vs adversarial model
+    print("\n[EVAL] Starting semantic robustness evaluation (sampling in semantic hyperrectangles)...")
+    _ = evaluate_semantic_stability(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+        path=path,
+        hyperrectangles_name=semantic_hyperrectangles_name,  # 'semantic'
+        base_onnx_path=os.path.join("results", "base.onnx"),
+        adv_onnx_path=os.path.join("results", "adversarial.onnx"),
+        num_samples_per_hr=10,
+        random_seed=42,
+    )
+
 
 
