@@ -20,5 +20,6 @@ def plot_semantic_bar(results, save_dir="results"):
     out_path = os.path.join(save_dir, "semantic_stability_bar.png")
     plt.savefig(out_path, dpi=200, bbox_inches="tight")
     plt.show()
+    plt.close()
 
     print(f"[PLOT] Saved bar chart to {out_path}")
