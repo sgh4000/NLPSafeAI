@@ -51,7 +51,7 @@ def evaluate_semantic_stability(
     # -------------------------------------------------
     # 1) Load semantic hyperrectangles
     # -------------------------------------------------
-    hr_path = os.path.join(path, dataset_name, encoding_model_name, f"{hyperrectangles_name}.npy")
+    hr_path = os.path.join(path, dataset_name, "hyperrectangles", encoding_model_name, f"{hyperrectangles_name}.npy")
     if not os.path.exists(hr_path):
         raise FileNotFoundError(f"Semantic hyperrectangles file not found at: {hr_path}")
 
