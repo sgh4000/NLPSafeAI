@@ -197,7 +197,7 @@ if __name__ == '__main__':
         base_onnx_path=os.path.join("results", "base.onnx"),
         adv_onnx_path=os.path.join("results", "adversarial.onnx"),
         num_samples_per_hr=10,
-        random_seed=42,
+        random_seed=seed,
     )
 
 
