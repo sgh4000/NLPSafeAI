@@ -10,7 +10,6 @@ def plot_semantic_bar(results, save_dir="results"):
     labels = ["Base", "Adversarial"]
     vals = [base, adv]
 
-    # Academic-ish styling
     plt.figure(figsize=(5.5, 4))
 
     colors = ["#4C78A8", "#F58518"]  # calm blue + orange
