@@ -5,7 +5,8 @@ from perturbations import create_perturbations
 from hyperrectangles import load_hyperrectangles
 from train import train_base, train_adversarial, save_model_in_onnx
 from semantic_eval import evaluate_semantic_stability
-from plotting import plot_semantic_bar   # (we’ll create this file)
+from plotting import plot_semantic_bar
+from plotting_semantic_cloud import plot_semantic_cloud
 
 
 import os
@@ -202,5 +203,15 @@ if __name__ == '__main__':
         random_seed=seed,
         # max_hr=200               # for a quicker sanity-check evaluation
     )
-    
+    # plot results
     plot_semantic_bar(results, save_dir="results")
+    
+    # Additionally, plot PCA semantic cloud
+    plot_semantic_cloud(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+    )
+        
+    print("\n[MAIN] All done.")
+    print("[MAIN] Results saved in 'results' folder.")
+    
