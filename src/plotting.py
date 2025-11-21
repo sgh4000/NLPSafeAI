@@ -10,6 +10,7 @@ def plot_semantic_bar(results, save_dir="results"):
     labels = ["Base", "Adversarial"]
     vals = [base, adv]
 
+    print("[PLOT] Creating semantic stability bar chart...")
     plt.figure(figsize=(5.5, 4))
 
     colors = ["#4C78A8", "#F58518"]  # calm blue + orange
@@ -45,4 +46,4 @@ def plot_semantic_bar(results, save_dir="results"):
     plt.show()
     plt.close()
 
-    print(f"[PLOT] Saved academic bar chart to {out_path}")
+    print(f"[PLOT] Saved semantic stability bar chart to: {out_path}")
