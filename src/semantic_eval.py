@@ -36,6 +36,7 @@ def evaluate_semantic_stability(
     adv_onnx_path: str = "results/adversarial.onnx",
     num_samples_per_hr: int = 10,
     random_seed: int = 42,
+    max_hr: int | None = None,
 ):
     """
     Empirical semantic robustness evaluation:
@@ -67,6 +68,13 @@ def evaluate_semantic_stability(
 
     n_hr, dim, _ = hyperrectangles.shape
     print(f"[EVAL] Loaded {n_hr} semantic hyperrectangles of dimension {dim} from: {hr_path}")
+    
+    # the sanity-check limiting code.
+    if max_hr is not None:
+        n_hr = min(n_hr, max_hr)
+        hyperrectangles = hyperrectangles[:n_hr]
+        print(f"[EVAL] Limiting evaluation to first {n_hr} hyperrectangles for sanity check.")
+
 
     # -------------------------------------------------
     # 2) Load ONNX models
@@ -107,12 +115,12 @@ def evaluate_semantic_stability(
             adv_stable += 1
 
     # -------------------------------------------------
-    # 4) Compute stability rates
+    # 4) Compute stability accuracy rates
     # -------------------------------------------------
     base_stability = base_stable / n_hr
     adv_stability = adv_stable / n_hr
 
-    print("\n[EVAL] Semantic stability (empirical, via sampling):")
+    print("\n[EVAL] Semantic stability accuracy (empirical, via sampling):")
     print(f"       Base model:         {base_stable}/{n_hr} hyperrectangles stable "
           f"({base_stability:.3f})")
     print(f"       Adversarial model:  {adv_stable}/{n_hr} hyperrectangles stable "
