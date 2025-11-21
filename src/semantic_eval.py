@@ -1,7 +1,10 @@
 import os
 import numpy as np
 import onnxruntime as ort
+from pathlib import Path
 
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 def _load_onnx_session(onnx_path: str) -> ort.InferenceSession:
     if not os.path.exists(onnx_path):
@@ -51,7 +54,8 @@ def evaluate_semantic_stability(
     # -------------------------------------------------
     # 1) Load semantic hyperrectangles
     # -------------------------------------------------
-    hr_path = os.path.join(path, dataset_name, "hyperrectangles", encoding_model_name, f"{hyperrectangles_name}.npy")
+    # hr_path = os.path.join(path, dataset_name, "hyperrectangles", encoding_model_name, f"{hyperrectangles_name}.npy")
+    hr_path = os.path.join(PROJECT_ROOT, path, dataset_name, "hyperrectangles", encoding_model_name, f"{hyperrectangles_name}.npy")
     if not os.path.exists(hr_path):
         raise FileNotFoundError(f"Semantic hyperrectangles file not found at: {hr_path}")
 
