@@ -28,6 +28,7 @@ def parse_semantic_properties_marabou(
     hyperrectangles_name="semantic",
     path="datasets",
     onnx_path="results/base.onnx",   # use base OR adversarial here
+    model_tag="base",               
     out_dir=None,
     max_hr=None,                     # for quick sanity check, e.g. 200
 ):
@@ -75,7 +76,7 @@ def parse_semantic_properties_marabou(
     # 3) Output directory
     # -------------------------
     if out_dir is None:
-        out_dir = PROJECT_ROOT / path / dataset_name / "properties" / "marabou" / encoding_model_name / hyperrectangles_name
+        out_dir = PROJECT_ROOT / path / dataset_name / "properties" / "marabou" / encoding_model_name / hyperrectangles_name / model_tag
     out_dir = str(out_dir)
     os.makedirs(out_dir, exist_ok=True)
 
