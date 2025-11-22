@@ -7,6 +7,7 @@ from train import train_base, train_adversarial, save_model_in_onnx
 from semantic_eval import evaluate_semantic_stability
 from plotting import plot_semantic_bar
 from plotting_semantic_cloud import plot_semantic_cloud
+from semantic_property_parser_marabou import parse_semantic_properties_marabou
 
 
 import os
@@ -136,6 +137,11 @@ if __name__ == '__main__':
     # 2. Compute embeddings for these semantic perturbations
     # 3. Build SEMANTIC hyperrectangles, saved as 'semantic.npy'
     # 4. Evaluate semantic robustness
+    # 5. Plot results
+    # 6. Plot PCA semantic cloud
+    # 7. Create Marabou property files for semantic hyperrectangles
+    
+    print("\n[MAIN] Starting semantic perturbations and hyperrectangles...")
 
     semantic_perturbation_name = 'semantic'
     semantic_hyperrectangles_name = 'semantic'
@@ -203,15 +209,28 @@ if __name__ == '__main__':
         random_seed=seed,
         # max_hr=200               # for a quicker sanity-check evaluation
     )
-    # plot results
+    
+    # 5) Plot results
     plot_semantic_bar(results, save_dir="results")
     
-    # Additionally, plot PCA semantic cloud
+    # 6) Plot PCA semantic cloud
     plot_semantic_cloud(
         dataset_name=dataset_name,
         encoding_model_name=encoding_model_name,
     )
-        
-    print("\n[MAIN] All done.")
+    
+    # 7) Create Marabou property files for semantic hyperrectangles
+    print("[PROP] Creating Marabou property files for semantic hyperrectangles...")
+    parse_semantic_properties_marabou(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+        hyperrectangles_name="semantic",
+        path=path,
+        onnx_path="src/results/base.onnx",   # use base OR adversarial here
+        # onnx_path="src/results/adversarial.onnx",
+        # max_hr=200  # for quick sanity check
+    )
+       
+    print("[MAIN] All done.")
     print("[MAIN] Results saved in 'results' folder.")
     
