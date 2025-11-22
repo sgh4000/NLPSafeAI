@@ -221,15 +221,25 @@ if __name__ == '__main__':
     
     # 7) Create Marabou property files for semantic hyperrectangles
     print("[PROP] Creating Marabou property files for semantic hyperrectangles...")
+    # Base model properties    
     parse_semantic_properties_marabou(
         dataset_name=dataset_name,
         encoding_model_name=encoding_model_name,
         hyperrectangles_name="semantic",
         path=path,
-        onnx_path="src/results/base.onnx",   # use base OR adversarial here
-        # onnx_path="src/results/adversarial.onnx",
-        # max_hr=200  # for quick sanity check
+        onnx_path="src/results/base.onnx",
+        model_tag="base"
     )
+    # Adversarial model properties
+    parse_semantic_properties_marabou(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+        hyperrectangles_name="semantic",
+        path=path,
+        onnx_path="src/results/adversarial.onnx",
+        model_tag="adversarial"
+    )
+
        
     print("[MAIN] All done.")
     print("[MAIN] Results saved in 'results' folder.")
