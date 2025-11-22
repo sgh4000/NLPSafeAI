@@ -242,5 +242,4 @@ if __name__ == '__main__':
 
        
     print("[MAIN] All done.")
-    print("[MAIN] Results saved in 'results' folder.")
     
