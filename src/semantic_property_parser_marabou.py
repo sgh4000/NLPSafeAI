@@ -21,6 +21,17 @@ def _onnx_predict_label(sess: ort.InferenceSession, x: np.ndarray) -> int:
     logits = sess.run(None, {input_name: x.astype(np.float32)[None, :]})[0][0]
     return int(np.argmax(logits))
 
+def _vehicle_box_formula(mins, maxs):
+    """Builds ((x!0>=min0 and x!0<=max0) and ... )"""
+    clauses = []
+    for j in range(len(mins)):
+        clauses.append(f"(x ! {j} >= {mins[j]} and x ! {j} <= {maxs[j]})")
+    return "(" + " and ".join(clauses) + ")"
+
+def _vehicle_predicate_name(expected_label: int):
+    """Map label to predicate name."""
+    # label 1 = depressed, label 0 = non-depressed
+    return "isClassifiedDepression" if expected_label == 1 else "isClassifiedNonDepression"
 
 def parse_semantic_properties_marabou(
     dataset_name="depression",
@@ -91,7 +102,9 @@ def parse_semantic_properties_marabou(
         expected_label = _onnx_predict_label(sess, center)
         other_label = 1 - expected_label
 
-        prop_path = os.path.join(out_dir, f"{hyperrectangles_name}@{i}")
+        label_tag = "depressed" if expected_label == 1 else "nondepressed"
+        prop_path = os.path.join(out_dir, f"{hyperrectangles_name}@{i}_{label_tag}.vcl")
+
 
         with open(prop_path, "w") as f:
             # input constraints
@@ -101,6 +114,21 @@ def parse_semantic_properties_marabou(
 
             # output constraint: expected >= other
             f.write(f"y{expected_label} >= y{other_label}\n")
+            
+        with open(prop_path, "w") as f:
+            # header comments for clarity
+            f.write(f"-- semantic HR {i}\n")
+            f.write(f"-- expected label at center = {expected_label} "
+                f"({'depressed' if expected_label==1 else 'non-depressed'})\n\n")
+
+    box_formula = _vehicle_box_formula(mins, maxs)
+    pred_name = _vehicle_predicate_name(expected_label)
+
+    # final Vehicle property
+    f.write(f"{box_formula} => {pred_name} x\n")
+    
+
+
 
     print(f"[PROP] Done. Wrote {n_hr} Marabou properties to:\n       {out_dir}")
     return out_dir
