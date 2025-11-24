@@ -21,17 +21,6 @@ def _onnx_predict_label(sess: ort.InferenceSession, x: np.ndarray) -> int:
     logits = sess.run(None, {input_name: x.astype(np.float32)[None, :]})[0][0]
     return int(np.argmax(logits))
 
-def _vehicle_box_formula(mins, maxs):
-    """Builds ((x!0>=min0 and x!0<=max0) and ... )"""
-    clauses = []
-    for j in range(len(mins)):
-        clauses.append(f"(x ! {j} >= {mins[j]} and x ! {j} <= {maxs[j]})")
-    return "(" + " and ".join(clauses) + ")"
-
-def _vehicle_predicate_name(expected_label: int):
-    """Map label to predicate name."""
-    # label 1 = depressed, label 0 = non-depressed
-    return "isClassifiedDepression" if expected_label == 1 else "isClassifiedNonDepression"
 
 def parse_semantic_properties_marabou(
     dataset_name="depression",
@@ -44,18 +33,20 @@ def parse_semantic_properties_marabou(
     max_hr=None,                     # for quick sanity check, e.g. 200
 ):
     """
-    Create Marabou-style property files from semantic hyperrectangles.
+    Create Vehicle VCL-style property files for semantic hyperrectangles.
 
-    For each HR:
-      - Take HR center as representative point.
-      - Use ONNX model to decide expected label at center.
-      - Write Marabou constraints:
-            x j >= min_j
-            x j <= max_j
-            y_expected >= y_other
+    For each semantic hyperrectangle (HR):
+        • Compute its center point in PCA space.
+        • Use the ONNX model to get the expected (true) label at the center.
+        • Generate a Vehicle property with:
+            – A conjunction of input constraints for all PCA dimensions:
+                (x ! j >= min_j and x ! j <= max_j)
+            – A classification stability constraint:
+                net x ! expected_label >= net x ! other_label
 
-    This matches semantic robustness notion:
-      "Prediction should not change inside the semantic HR".
+    This encodes semantic robustness:
+        "The model’s prediction must remain the same for all inputs inside
+        the semantic hyperrectangle."
     """
 
     # -------------------------
@@ -102,20 +93,30 @@ def parse_semantic_properties_marabou(
         expected_label = _onnx_predict_label(sess, center)
         other_label = 1 - expected_label
 
-        label_tag = "depressed" if expected_label == 1 else "nondepressed"
-        prop_path = os.path.join(out_dir, f"{hyperrectangles_name}@{i}_{label_tag}.vcl")
-
-       
+        prop_path = os.path.join(out_dir, f"{hyperrectangles_name}_{i}.vcl")
+  
         with open(prop_path, "w") as f:
-            # header comments for clarity
-            f.write(f"-- semantic HR {i}\n")
-            f.write(f"-- expected label at center = {expected_label} "
-                f"({'depressed' if expected_label==1 else 'non-depressed'})\n\n")
-    
-        box_formula = _vehicle_box_formula(mins, maxs)
-        pred_name = _vehicle_predicate_name(expected_label)
-        # final Vehicle property
-        f.write(f"{box_formula} => {pred_name} x\n")
-        
-    print(f"[PROP] Done. Wrote {n_hr} Marabou properties to:\n       {out_dir}")
+            f.write(f"-- semantic property {i} for {dataset_name}\n\n")
+            # 1) Declare the network (Vehicle syntax)
+            f.write("network net : Tensor Rat [30] -> Tensor Rat [2]\n\n")
+
+            # 2) Start the property
+            f.write(f"property semantic_{i} : Bool\n")
+            f.write(f"property semantic_{i} =\n")
+            f.write("  forall x.\n")
+
+            # 3) Input box constraints
+            f.write("    (")
+            for j in range(dim):
+                f.write(f"(x ! {j} >= {mins[j]} and x ! {j} <= {maxs[j]})")
+                if j < dim - 1:
+                    f.write("\n     and ")
+            f.write(")\n")
+
+            # 4) Output constraint: classification must stay same
+            f.write("    => ")
+            f.write(f"(net x ! {expected_label} >= net x ! {other_label})\n")
+
+
+    print(f"[PROP] Done. Wrote {n_hr} Vehicle properties to:\n       {out_dir}")
     return out_dir
