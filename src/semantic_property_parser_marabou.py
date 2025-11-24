@@ -105,30 +105,17 @@ def parse_semantic_properties_marabou(
         label_tag = "depressed" if expected_label == 1 else "nondepressed"
         prop_path = os.path.join(out_dir, f"{hyperrectangles_name}@{i}_{label_tag}.vcl")
 
-
-        with open(prop_path, "w") as f:
-            # input constraints
-            for j in range(dim):
-                f.write(f"x {j} >= {mins[j]}\n")
-                f.write(f"x {j} <= {maxs[j]}\n")
-
-            # output constraint: expected >= other
-            f.write(f"y{expected_label} >= y{other_label}\n")
-            
+       
         with open(prop_path, "w") as f:
             # header comments for clarity
             f.write(f"-- semantic HR {i}\n")
             f.write(f"-- expected label at center = {expected_label} "
                 f"({'depressed' if expected_label==1 else 'non-depressed'})\n\n")
-
-    box_formula = _vehicle_box_formula(mins, maxs)
-    pred_name = _vehicle_predicate_name(expected_label)
-
-    # final Vehicle property
-    f.write(f"{box_formula} => {pred_name} x\n")
     
-
-
-
+        box_formula = _vehicle_box_formula(mins, maxs)
+        pred_name = _vehicle_predicate_name(expected_label)
+        # final Vehicle property
+        f.write(f"{box_formula} => {pred_name} x\n")
+        
     print(f"[PROP] Done. Wrote {n_hr} Marabou properties to:\n       {out_dir}")
     return out_dir
