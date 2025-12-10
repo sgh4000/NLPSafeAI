@@ -15,7 +15,8 @@ X_test = data["X_test"]
 y_test = data["y_test"]
 
 # Load ONNX model
-onnx_path = "../results/adversarial.onnx"
+model = "adversarial"
+onnx_path = f"../results/{model}.onnx"
 session = ort.InferenceSession(onnx_path)
 
 # SHAP feature importance
@@ -28,17 +29,17 @@ n_explain_graph = 2000
 
 n_background = 5000
 n_explain = 100
-unimportant_threshold = 0.02
-unimportant_width = 0.2
+unimportant_threshold = 0.005
+unimportant_width = 0.5
 
-rects = generate_feature_importance_driven_hyperrectangles(X_train, X_test, y_test, session, n_background=n_background, n_explain=n_explain,unimportant_threshold=unimportant_threshold,unimportant_width=unimportant_width)
+rects = generate_feature_importance_driven_hyperrectangles(X_train, X_test, y_test, session, model, n_background=n_background, n_explain=n_explain,unimportant_threshold=unimportant_threshold,unimportant_width=unimportant_width)
 
 vehicle_properties = [rectangle_to_vehicle_property(r) for r in rects]
 
 for x in vehicle_properties:
     print(x)
 
-filename = f"hyperrectangle_properties/{n_background}_{n_explain}_{unimportant_threshold}_{unimportant_width}.txt"
+filename = f"hyperrectangle_properties/{n_background}_{n_explain}_{unimportant_threshold}_{unimportant_width}-KernelExplainer-{model}.txt"
 
 with open(filename, "w") as f:
   for x in vehicle_properties:

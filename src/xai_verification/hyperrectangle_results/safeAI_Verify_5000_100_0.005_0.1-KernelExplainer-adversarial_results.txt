@@ -1,0 +1,1313 @@
+=== Verifying property0 ===
+[93m
+Warning: In property 'property0', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property0 [......................................................] 0/1 queries  property0 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property0: NO COUNTEREXAMPLE
+
+=== Verifying property1 ===
+[93m
+Warning: In property 'property1', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property1 [......................................................] 0/1 queries  property1 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property1: NO COUNTEREXAMPLE
+
+=== Verifying property2 ===
+[93m
+Warning: In property 'property2', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property2 [......................................................] 0/1 queries  property2 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property2: NO COUNTEREXAMPLE
+
+=== Verifying property3 ===
+[93m
+Warning: In property 'property3', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property3 [......................................................] 0/1 queries  property3 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property3: NO COUNTEREXAMPLE
+
+=== Verifying property4 ===
+[93m
+Warning: In property 'property4', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property4 [......................................................] 0/1 queries  property4 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property4: NO COUNTEREXAMPLE
+
+=== Verifying property5 ===
+[93m
+Warning: In property 'property5', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property5 [......................................................] 0/1 queries  property5 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property5: NO COUNTEREXAMPLE
+
+=== Verifying property6 ===
+[93m
+Warning: In property 'property6', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property6 [......................................................] 0/1 queries  property6 [======================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.614066, 8.56e-2, -0.119253, -0.109452, 3.573e-3, -3.5301e-2, 2.5822e-2, 9.0561e-2, -4.4244e-2, -0.12011, -6.4658e-2, 5.1784e-2, -1.5281e-2, -0.105068, -6.492e-2, -6.0121e-2, 4.0385e-2, -5.3745e-2, -9.2118e-2, 2.7753e-2, 1.2057e-2, -2.918e-2, 0.10015, -4.141e-2, -6.105e-3, 3.9706e-2, 5.7893e-2, 4.8442e-2, 2.9568e-2, 4.9722e-2 ]
+property6: COUNTEREXAMPLE FOUND
+
+=== Verifying property7 ===
+[93m
+Warning: In property 'property7', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property7 [......................................................] 0/1 queries  property7 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property7: NO COUNTEREXAMPLE
+
+=== Verifying property8 ===
+[93m
+Warning: In property 'property8', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property8 [......................................................] 0/1 queries  property8 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property8: NO COUNTEREXAMPLE
+
+=== Verifying property9 ===
+[93m
+Warning: In property 'property9', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property9 [......................................................] 0/1 queries  property9 [======================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property9: NO COUNTEREXAMPLE
+
+=== Verifying property10 ===
+[93m
+Warning: In property 'property10', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property10 [.....................................................] 0/1 queries  property10 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property10: NO COUNTEREXAMPLE
+
+=== Verifying property11 ===
+[93m
+Warning: In property 'property11', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property11 [.....................................................] 0/1 queries  property11 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property11: NO COUNTEREXAMPLE
+
+=== Verifying property12 ===
+[93m
+Warning: In property 'property12', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property12 [.....................................................] 0/1 queries  property12 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property12: NO COUNTEREXAMPLE
+
+=== Verifying property13 ===
+[93m
+Warning: In property 'property13', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property13 [.....................................................] 0/1 queries  property13 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property13: NO COUNTEREXAMPLE
+
+=== Verifying property14 ===
+[93m
+Warning: In property 'property14', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property14 [.....................................................] 0/1 queries  property14 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property14: NO COUNTEREXAMPLE
+
+=== Verifying property15 ===
+[93m
+Warning: In property 'property15', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property15 [.....................................................] 0/1 queries  property15 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property15: NO COUNTEREXAMPLE
+
+=== Verifying property16 ===
+[93m
+Warning: In property 'property16', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property16 [.....................................................] 0/1 queries  property16 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property16: NO COUNTEREXAMPLE
+
+=== Verifying property17 ===
+[93m
+Warning: In property 'property17', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property17 [.....................................................] 0/1 queries  property17 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property17: NO COUNTEREXAMPLE
+
+=== Verifying property18 ===
+[93m
+Warning: In property 'property18', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property18 [.....................................................] 0/1 queries  property18 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property18: NO COUNTEREXAMPLE
+
+=== Verifying property19 ===
+[93m
+Warning: In property 'property19', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property19 [.....................................................] 0/1 queries  property19 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property19: NO COUNTEREXAMPLE
+
+=== Verifying property20 ===
+[93m
+Warning: In property 'property20', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property20 [.....................................................] 0/1 queries  property20 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property20: NO COUNTEREXAMPLE
+
+=== Verifying property21 ===
+[93m
+Warning: In property 'property21', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property21 [.....................................................] 0/1 queries  property21 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property21: NO COUNTEREXAMPLE
+
+=== Verifying property22 ===
+[93m
+Warning: In property 'property22', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property22 [.....................................................] 0/1 queries  property22 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 7.4417e-2, -0.257005, -2.4097e-2, 0.194429, -0.165553, -6.7025e-2, -6.047e-3, 0.160478, 6.418e-2, 4.2599e-2, -4.827e-3, -0.130833, -0.169982, 0.273869, -7.81e-4, 9.6489e-2, 1.9033e-2, 9.8232e-2, -5.71e-4, -4.5454e-2, 7.4696e-2, 1.3693e-2, -3.9293e-2, 7.2233e-2, -5.3961e-2, -4.3667e-2, 5.595e-3, -1.9207e-2, 1.9724e-2, 7.5435e-2 ]
+property22: COUNTEREXAMPLE FOUND
+
+=== Verifying property23 ===
+[93m
+Warning: In property 'property23', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property23 [.....................................................] 0/1 queries  property23 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property23: NO COUNTEREXAMPLE
+
+=== Verifying property24 ===
+[93m
+Warning: In property 'property24', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property24 [.....................................................] 0/1 queries  property24 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.447934, -0.309356, -0.102587, 1.1927e-2, -6.1428e-2, -0.240064, -8.8084e-2, -4.6786e-2, 1.0865e-2, 3.1468e-2, 7.8562e-2, -4.4046e-2, -8.403e-3, -2.8237e-2, -6.1448e-2, 8.269e-3, -7.615e-3, 4.06e-4, -0.108206, -8.2547e-2, 5.8097e-2, -7.18e-4, 2.568e-3, -0.1547, 3.4582e-2, -3.8844e-2, -4.7249e-2, 0.10916, 0.132136, 2.3573e-2 ]
+property24: COUNTEREXAMPLE FOUND
+
+=== Verifying property25 ===
+[93m
+Warning: In property 'property25', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property25 [.....................................................] 0/1 queries  property25 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property25: NO COUNTEREXAMPLE
+
+=== Verifying property26 ===
+[93m
+Warning: In property 'property26', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property26 [.....................................................] 0/1 queries  property26 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 2.0907e-2, -0.222573, 8.7185e-2, -3.634e-3, -1.275e-2, 0.222863, 4.2554e-2, -0.179292, 2.021e-2, 6.9172e-2, 0.126203, 8.4405e-2, -5.6234e-2, 1.3353e-2, -6.9784e-2, 8.05e-3, 0.124867, -8.5378e-2, -1.401e-2, -0.120702, -3.5976e-2, -2.5363e-2, -2.0075e-2, -0.119471, 2.6921e-2, 4.222e-2, 0.140358, -2.4545e-2, -0.113249, -3.1605e-2 ]
+property26: COUNTEREXAMPLE FOUND
+
+=== Verifying property27 ===
+[93m
+Warning: In property 'property27', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property27 [.....................................................] 0/1 queries  property27 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property27: NO COUNTEREXAMPLE
+
+=== Verifying property28 ===
+[93m
+Warning: In property 'property28', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property28 [.....................................................] 0/1 queries  property28 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property28: NO COUNTEREXAMPLE
+
+=== Verifying property29 ===
+[93m
+Warning: In property 'property29', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property29 [.....................................................] 0/1 queries  property29 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.401151, -0.195122, -9.1169e-2, -6.6592e-2, -2.4175e-2, 0.153606, 0.111587, 3.5196e-2, -9.9381e-2, -7.17e-4, 3.9174e-2, 0.147066, -2.3934e-2, -0.164064, -0.108296, -8.4438e-2, -6.641e-3, -8.7308e-2, -0.147956, -5.1912e-2, -4.1075e-2, -5.2612e-2, 0.103941, -6.46e-2, 0.114906, 2.251e-2, -7.0517e-2, -6.121e-3, -8.9065e-2, 5.5509e-2 ]
+property29: COUNTEREXAMPLE FOUND
+
+=== Verifying property30 ===
+[93m
+Warning: In property 'property30', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property30 [.....................................................] 0/1 queries  property30 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property30: NO COUNTEREXAMPLE
+
+=== Verifying property31 ===
+[93m
+Warning: In property 'property31', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property31 [.....................................................] 0/1 queries  property31 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property31: NO COUNTEREXAMPLE
+
+=== Verifying property32 ===
+[93m
+Warning: In property 'property32', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property32 [.....................................................] 0/1 queries  property32 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property32: NO COUNTEREXAMPLE
+
+=== Verifying property33 ===
+[93m
+Warning: In property 'property33', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property33 [.....................................................] 0/1 queries  property33 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property33: NO COUNTEREXAMPLE
+
+=== Verifying property34 ===
+[93m
+Warning: In property 'property34', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property34 [.....................................................] 0/1 queries  property34 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property34: NO COUNTEREXAMPLE
+
+=== Verifying property35 ===
+[93m
+Warning: In property 'property35', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property35 [.....................................................] 0/1 queries  property35 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property35: NO COUNTEREXAMPLE
+
+=== Verifying property36 ===
+[93m
+Warning: In property 'property36', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property36 [.....................................................] 0/1 queries  property36 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property36: NO COUNTEREXAMPLE
+
+=== Verifying property37 ===
+[93m
+Warning: In property 'property37', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property37 [.....................................................] 0/1 queries  property37 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property37: NO COUNTEREXAMPLE
+
+=== Verifying property38 ===
+[93m
+Warning: In property 'property38', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property38 [.....................................................] 0/1 queries  property38 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property38: NO COUNTEREXAMPLE
+
+=== Verifying property39 ===
+[93m
+Warning: In property 'property39', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property39 [.....................................................] 0/1 queries  property39 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property39: NO COUNTEREXAMPLE
+
+=== Verifying property40 ===
+[93m
+Warning: In property 'property40', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property40 [.....................................................] 0/1 queries  property40 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property40: NO COUNTEREXAMPLE
+
+=== Verifying property41 ===
+[93m
+Warning: In property 'property41', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property41 [.....................................................] 0/1 queries  property41 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property41: NO COUNTEREXAMPLE
+
+=== Verifying property42 ===
+[93m
+Warning: In property 'property42', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property42 [.....................................................] 0/1 queries  property42 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property42: NO COUNTEREXAMPLE
+
+=== Verifying property43 ===
+[93m
+Warning: In property 'property43', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property43 [.....................................................] 0/1 queries  property43 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property43: NO COUNTEREXAMPLE
+
+=== Verifying property44 ===
+[93m
+Warning: In property 'property44', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property44 [.....................................................] 0/1 queries  property44 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property44: NO COUNTEREXAMPLE
+
+=== Verifying property45 ===
+[93m
+Warning: In property 'property45', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property45 [.....................................................] 0/1 queries  property45 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.561589, -0.209308, -0.111028, 4.1083e-2, -4.4587e-2, -0.13819, -2.6827e-2, -3.2284e-2, -3.6586e-2, -0.110054, -6.3607e-2, 2.6432e-2, 9.747e-2, 9.6891e-2, -7.5555e-2, 4.395e-2, -7.6448e-2, 1.1906e-2, 5.2471e-2, -6.5232e-2, -0.149533, 1.751e-3, -6.9185e-2, -3.5353e-2, -5.4909e-2, 2.676e-3, -2.7581e-2, -6.8198e-2, 0.126025, -8.9369e-2 ]
+property45: COUNTEREXAMPLE FOUND
+
+=== Verifying property46 ===
+[93m
+Warning: In property 'property46', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property46 [.....................................................] 0/1 queries  property46 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property46: NO COUNTEREXAMPLE
+
+=== Verifying property47 ===
+[93m
+Warning: In property 'property47', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property47 [.....................................................] 0/1 queries  property47 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property47: NO COUNTEREXAMPLE
+
+=== Verifying property48 ===
+[93m
+Warning: In property 'property48', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property48 [.....................................................] 0/1 queries  property48 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property48: NO COUNTEREXAMPLE
+
+=== Verifying property49 ===
+[93m
+Warning: In property 'property49', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property49 [.....................................................] 0/1 queries  property49 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property49: NO COUNTEREXAMPLE
+
+=== Verifying property50 ===
+[93m
+Warning: In property 'property50', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property50 [.....................................................] 0/1 queries  property50 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property50: NO COUNTEREXAMPLE
+
+=== Verifying property51 ===
+[93m
+Warning: In property 'property51', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property51 [.....................................................] 0/1 queries  property51 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property51: NO COUNTEREXAMPLE
+
+=== Verifying property52 ===
+[93m
+Warning: In property 'property52', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property52 [.....................................................] 0/1 queries  property52 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property52: NO COUNTEREXAMPLE
+
+=== Verifying property53 ===
+[93m
+Warning: In property 'property53', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property53 [.....................................................] 0/1 queries  property53 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property53: NO COUNTEREXAMPLE
+
+=== Verifying property54 ===
+[93m
+Warning: In property 'property54', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property54 [.....................................................] 0/1 queries  property54 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property54: NO COUNTEREXAMPLE
+
+=== Verifying property55 ===
+[93m
+Warning: In property 'property55', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property55 [.....................................................] 0/1 queries  property55 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property55: NO COUNTEREXAMPLE
+
+=== Verifying property56 ===
+[93m
+Warning: In property 'property56', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property56 [.....................................................] 0/1 queries  property56 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property56: NO COUNTEREXAMPLE
+
+=== Verifying property57 ===
+[93m
+Warning: In property 'property57', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property57 [.....................................................] 0/1 queries  property57 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property57: NO COUNTEREXAMPLE
+
+=== Verifying property58 ===
+[93m
+Warning: In property 'property58', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property58 [.....................................................] 0/1 queries  property58 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property58: NO COUNTEREXAMPLE
+
+=== Verifying property59 ===
+[93m
+Warning: In property 'property59', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property59 [.....................................................] 0/1 queries  property59 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property59: NO COUNTEREXAMPLE
+
+=== Verifying property60 ===
+[93m
+Warning: In property 'property60', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property60 [.....................................................] 0/1 queries  property60 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property60: NO COUNTEREXAMPLE
+
+=== Verifying property61 ===
+[93m
+Warning: In property 'property61', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property61 [.....................................................] 0/1 queries  property61 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property61: NO COUNTEREXAMPLE
+
+=== Verifying property62 ===
+[93m
+Warning: In property 'property62', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property62 [.....................................................] 0/1 queries  property62 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property62: NO COUNTEREXAMPLE
+
+=== Verifying property63 ===
+[93m
+Warning: In property 'property63', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property63 [.....................................................] 0/1 queries  property63 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property63: NO COUNTEREXAMPLE
+
+=== Verifying property64 ===
+[93m
+Warning: In property 'property64', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property64 [.....................................................] 0/1 queries  property64 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.292409, -0.283314, -3.2896e-2, 0.137823, -5.2322e-2, 8.918e-2, -6.7321e-2, 0.146473, 0.114764, -0.217033, -0.165317, 0.189022, -5.218e-3, 0.206399, 5.96e-3, -5.857e-3, 5.047e-2, -7.194e-2, -2.9205e-2, 2.2413e-2, 0.110663, -3.0284e-2, -6.2141e-2, 0.177074, -8.833e-3, 0.13277, -5.904e-3, -8.373e-3, -2.2525e-2, -1.258e-2 ]
+property64: COUNTEREXAMPLE FOUND
+
+=== Verifying property65 ===
+[93m
+Warning: In property 'property65', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property65 [.....................................................] 0/1 queries  property65 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property65: NO COUNTEREXAMPLE
+
+=== Verifying property66 ===
+[93m
+Warning: In property 'property66', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property66 [.....................................................] 0/1 queries  property66 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property66: NO COUNTEREXAMPLE
+
+=== Verifying property67 ===
+[93m
+Warning: In property 'property67', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property67 [.....................................................] 0/1 queries  property67 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property67: NO COUNTEREXAMPLE
+
+=== Verifying property68 ===
+[93m
+Warning: In property 'property68', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property68 [.....................................................] 0/1 queries  property68 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.264191, -0.325145, -5.4562e-2, 5.707e-2, 0.212087, 0.158476, 5.3204e-2, 0.101717, 5.2e-5, -3.7345e-2, -3.3008e-2, 0.122089, -2.7882e-2, 0.136867, -4.8536e-2, 0.128315, 7.0699e-2, -4.1456e-2, 8.526e-3, 4.949e-3, 0.112619, -8.986e-3, -0.170198, 4.769e-2, 8.6905e-2, -6.228e-3, -1.5118e-2, 5.3339e-2, -7.9755e-2, 0.110536 ]
+property68: COUNTEREXAMPLE FOUND
+
+=== Verifying property69 ===
+[93m
+Warning: In property 'property69', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property69 [.....................................................] 0/1 queries  property69 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property69: NO COUNTEREXAMPLE
+
+=== Verifying property70 ===
+[93m
+Warning: In property 'property70', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property70 [.....................................................] 0/1 queries  property70 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property70: NO COUNTEREXAMPLE
+
+=== Verifying property71 ===
+[93m
+Warning: In property 'property71', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property71 [.....................................................] 0/1 queries  property71 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.393381, 3.9903e-2, -0.226449, -4.171e-2, -0.116048, -1.6398e-2, 0.14127, -4.0616e-2, -2.4442e-2, -6.0548e-2, -7.5955e-2, 8.0031e-2, 0.117902, 6.594e-2, -5.6998e-2, 4.0537e-2, 3.1828e-2, 6.3672e-2, 4.8353e-2, 6.5939e-2, 7.86e-4, -5.331e-3, -3.6953e-2, -0.10999, 6.0938e-2, 0.121695, -8.2625e-2, -0.103474, 3.812e-2, 1.8056e-2 ]
+property71: COUNTEREXAMPLE FOUND
+
+=== Verifying property72 ===
+[93m
+Warning: In property 'property72', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property72 [.....................................................] 0/1 queries  property72 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property72: NO COUNTEREXAMPLE
+
+=== Verifying property73 ===
+[93m
+Warning: In property 'property73', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property73 [.....................................................] 0/1 queries  property73 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property73: NO COUNTEREXAMPLE
+
+=== Verifying property74 ===
+[93m
+Warning: In property 'property74', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property74 [.....................................................] 0/1 queries  property74 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property74: NO COUNTEREXAMPLE
+
+=== Verifying property75 ===
+[93m
+Warning: In property 'property75', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property75 [.....................................................] 0/1 queries  property75 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property75: NO COUNTEREXAMPLE
+
+=== Verifying property76 ===
+[93m
+Warning: In property 'property76', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property76 [.....................................................] 0/1 queries  property76 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property76: NO COUNTEREXAMPLE
+
+=== Verifying property77 ===
+[93m
+Warning: In property 'property77', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property77 [.....................................................] 0/1 queries  property77 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property77: NO COUNTEREXAMPLE
+
+=== Verifying property78 ===
+[93m
+Warning: In property 'property78', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property78 [.....................................................] 0/1 queries  property78 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property78: NO COUNTEREXAMPLE
+
+=== Verifying property79 ===
+[93m
+Warning: In property 'property79', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property79 [.....................................................] 0/1 queries  property79 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.498401, -7.2103e-2, -0.11629, 7.4476e-2, -7.4313e-2, -0.14337, 3.5863e-2, -2.0187e-2, 2.5321e-2, -2.5974e-2, 5.1308e-2, -7.5115e-2, -8.1179e-2, -0.104952, 6.2775e-2, -6.4078e-2, -7.1993e-2, 0.166307, -9.4486e-2, 0.110248, -1.4402e-2, 1.3948e-2, 7.8558e-2, -8.1594e-2, -1.6807e-2, 1.3891e-2, -1.5061e-2, 2.72e-4, -3.6871e-2, 9.4597e-2 ]
+property79: COUNTEREXAMPLE FOUND
+
+=== Verifying property80 ===
+[93m
+Warning: In property 'property80', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property80 [.....................................................] 0/1 queries  property80 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property80: NO COUNTEREXAMPLE
+
+=== Verifying property81 ===
+[93m
+Warning: In property 'property81', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property81 [.....................................................] 0/1 queries  property81 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.304116, -4.4674e-2, -0.177804, -9.487e-2, -0.119384, -5.4535e-2, 9.9091e-2, -0.308999, -0.10707, 0.157958, 1.0976e-2, 2.227e-2, -1.6305e-2, -6.4697e-2, -8.9286e-2, -2.6106e-2, -0.218574, 7.64e-4, -5.3689e-2, -5.6197e-2, 8.875e-2, 6.3467e-2, 1.268e-2, -7.5384e-2, -3.3017e-2, -0.195419, -8.8223e-2, -0.131085, -4.6837e-2, -0.130502 ]
+property81: COUNTEREXAMPLE FOUND
+
+=== Verifying property82 ===
+[93m
+Warning: In property 'property82', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property82 [.....................................................] 0/1 queries  property82 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property82: NO COUNTEREXAMPLE
+
+=== Verifying property83 ===
+[93m
+Warning: In property 'property83', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property83 [.....................................................] 0/1 queries  property83 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property83: NO COUNTEREXAMPLE
+
+=== Verifying property84 ===
+[93m
+Warning: In property 'property84', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property84 [.....................................................] 0/1 queries  property84 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property84: NO COUNTEREXAMPLE
+
+=== Verifying property85 ===
+[93m
+Warning: In property 'property85', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property85 [.....................................................] 0/1 queries  property85 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property85: NO COUNTEREXAMPLE
+
+=== Verifying property86 ===
+[93m
+Warning: In property 'property86', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property86 [.....................................................] 0/1 queries  property86 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property86: NO COUNTEREXAMPLE
+
+=== Verifying property87 ===
+[93m
+Warning: In property 'property87', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property87 [.....................................................] 0/1 queries  property87 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 6.9206e-2, 0.24467, -5.9744e-2, -0.107294, 2.9467e-2, 8.5161e-2, -5.063e-3, 8.5511e-2, -1.8769e-2, 4.7762e-2, 3.7828e-2, -0.171458, -4.5572e-2, 5.3311e-2, -3.893e-2, 0.108421, -6.9878e-2, 2.4986e-2, 5.1652e-2, -9.0781e-2, -8.1321e-2, -0.105822, 4.2815e-2, 0.110287, -6.2534e-2, 3.4528e-2, 0.114033, -5.6076e-2, -6.8928e-2, 0.13696 ]
+property87: COUNTEREXAMPLE FOUND
+
+=== Verifying property88 ===
+[93m
+Warning: In property 'property88', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property88 [.....................................................] 0/1 queries  property88 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property88: NO COUNTEREXAMPLE
+
+=== Verifying property89 ===
+[93m
+Warning: In property 'property89', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property89 [.....................................................] 0/1 queries  property89 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property89: NO COUNTEREXAMPLE
+
+=== Verifying property90 ===
+[93m
+Warning: In property 'property90', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property90 [.....................................................] 0/1 queries  property90 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property90: NO COUNTEREXAMPLE
+
+=== Verifying property91 ===
+[93m
+Warning: In property 'property91', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property91 [.....................................................] 0/1 queries  property91 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property91: NO COUNTEREXAMPLE
+
+=== Verifying property92 ===
+[93m
+Warning: In property 'property92', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property92 [.....................................................] 0/1 queries  property92 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property92: NO COUNTEREXAMPLE
+
+=== Verifying property93 ===
+[93m
+Warning: In property 'property93', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property93 [.....................................................] 0/1 queries  property93 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property93: NO COUNTEREXAMPLE
+
+=== Verifying property94 ===
+[93m
+Warning: In property 'property94', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property94 [.....................................................] 0/1 queries  property94 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property94: NO COUNTEREXAMPLE
+
+=== Verifying property95 ===
+[93m
+Warning: In property 'property95', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property95 [.....................................................] 0/1 queries  property95 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property95: NO COUNTEREXAMPLE
+
+=== Verifying property96 ===
+[93m
+Warning: In property 'property96', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property96 [.....................................................] 0/1 queries  property96 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property96: NO COUNTEREXAMPLE
+
+=== Verifying property97 ===
+[93m
+Warning: In property 'property97', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property97 [.....................................................] 0/1 queries  property97 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [91m✗[m - Marabou found a counterexample
+      x: [ 0.299318, 2.82e-2, 0.209851, 0.22636, 0.100632, -0.11066, 2.4935e-2, -1.6499e-2, 5.9242e-2, -1.766e-2, -2.7574e-2, 0.160644, -0.138624, 0.130391, 7.0357e-2, 2.5384e-2, -0.110376, 0.133789, -7.4241e-2, -1.4443e-2, 6.2856e-2, -7.3253e-2, -2.8154e-2, 8.2367e-2, 2.8743e-2, -4.992e-3, 4.5678e-2, -6.4168e-2, -0.115847, 8.2056e-2 ]
+property97: COUNTEREXAMPLE FOUND
+
+=== Verifying property98 ===
+[93m
+Warning: In property 'property98', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property98 [.....................................................] 0/1 queries  property98 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property98: NO COUNTEREXAMPLE
+
+=== Verifying property99 ===
+[93m
+Warning: In property 'property99', at least one of the generated queries were found to contain a strict inequality (i.e. constraints of the form 'x < y'). Unfortunately the Marabou query format only supports non-strict inequalities (i.e. constraints of the form 'x <= y').
+
+In order to provide support, Vehicle has automatically converted the strict inequalities to non-strict inequalites. This is not sound, but errors will be at most the floating point epsilon used by the verifier, which is usually very small (e.g. 1e-9). However, this may lead to unexpected behaviour (e.g. loss of the law of excluded middle).
+
+See https://github.com/vehicle-lang/vehicle/issues/74 for further details.
+[m
+  property99 [.....................................................] 0/1 queries  property99 [=====================================================] 1/1 queries
+Verifying properties:
+    result: [92m🗸[m - Marabou proved no counterexample exists
+property99: NO COUNTEREXAMPLE
+
