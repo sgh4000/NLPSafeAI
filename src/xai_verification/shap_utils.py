@@ -37,7 +37,7 @@ def predict_labels_onnx(onnx_session, X):
     return np.argmax(logits, axis=1)
 
 # Generating the hyperrectangles, using global SHAP importance values
-def generate_feature_importance_driven_hyperrectangles(X_train, X_test, y_test, onnx_session, n_background=10, n_explain=100,unimportant_threshold=0,unimportant_width=0.2):
+def generate_feature_importance_driven_hyperrectangles(X_train, X_test, y_test, onnx_session, model, n_background=10, n_explain=100,unimportant_threshold=0,unimportant_width=0.2):
 
     input_name = onnx_session.get_inputs()[0].name
 
@@ -51,7 +51,7 @@ def generate_feature_importance_driven_hyperrectangles(X_train, X_test, y_test, 
         preds = onnx_session.run(None, {input_name: X_float})[0]
         return preds
 
-    shap_file = f"shap_values{n_background}.npy"
+    shap_file = f"shap_values{n_background}-{model}.npy"
 
     # Check if SHAP values were already computed
     try:
