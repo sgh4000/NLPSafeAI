@@ -7,7 +7,7 @@
 ###### To run:
 
 
-
+'''
 *vehicle verify\\*
 
    *--specification src/semantic\_base.vcl*
@@ -17,7 +17,7 @@
    *--network safeNLP:src/results/base.onnx*
 
    *--property semantic\_i*
-
+'''
 
 
 
