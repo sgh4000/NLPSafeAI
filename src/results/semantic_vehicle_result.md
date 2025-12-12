@@ -5,19 +5,13 @@
 
 
 ###### To run:
-
-
-
-*vehicle verify\\*
-
-   *--specification src/semantic\_base.vcl\\*
-
-   *--verifier Marabou\\*
-
-   *--network safeNLP:src/results/base.onnx\\*
-
-   *--property semantic\_i*
-
+```bash
+vehicle verify \
+  --specification src/semantic\_base.vcl \
+  --verifier Marabou \
+  --network safeNLP:src/results/base.onnx \
+  --property semantic_i
+```
 
 
 
