@@ -238,21 +238,15 @@ Verifying properties:
 
 
 
+
+
 ###### To run:
-
-
-
-*vehicle verify\\*
-
-*--specification src/semantic\_adv.vcl*
-
-*--verifier Marabou*
-
-*--network safeNLP:src/results/adversarial.onnx*
-
-*--property semantic\_i*
-
-
+```bash
+vehicle verify \
+  --specification src/semantic\_adv.vcl \
+  --verifier Marabou \
+  --network safeNLP:src/results/adversarial.onnx \
+  --property semantic_i
 
 
 
