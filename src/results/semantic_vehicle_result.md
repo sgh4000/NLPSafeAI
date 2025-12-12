@@ -7,17 +7,17 @@
 ###### To run:
 
 
-'''
+
 *vehicle verify\\*
 
-   *--specification src/semantic\_base.vcl*
+   *--specification src/semantic\_base.vcl\\*
 
-   *--verifier Marabou*
+   *--verifier Marabou\\*
 
-   *--network safeNLP:src/results/base.onnx*
+   *--network safeNLP:src/results/base.onnx\\*
 
    *--property semantic\_i*
-'''
+
 
 
 
