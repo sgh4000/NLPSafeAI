@@ -97,7 +97,11 @@ def load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name
         #         hyperrectangles = np.load(f'{path}/{dataset_name}/hyperrectangles/{encoding_model_name}/{h_n}.npy')
         #     else:
         #         hyperrectangles = np.concatenate((hyperrectangles, np.load(f'{path}/{dataset_name}/hyperrectangles/{encoding_model_name}/{h_n}.npy')), axis=0)
-        hyperrectangles = np.load(f'{PROJECT_ROOT}/{path}/{dataset_name}/hyperrectangles/{encoding_model_name}/{hyperrectangles_name}.npy')
+        # hyperrectangles = np.load(f'{PROJECT_ROOT}/{path}/{dataset_name}/hyperrectangles/{encoding_model_name}/{hyperrectangles_name}.npy')
+        load_file = f'{PROJECT_ROOT}/{path}/{dataset_name}/hyperrectangles/{encoding_model_name}/{hyperrectangles_name}.npy'
+        # print("[DEBUG-hyperrectangles] Loading HR from:", load_file)
+        # print("[DEBUG-hyperrectangles] Exists?", os.path.exists(load_file))
+        hyperrectangles = np.load(load_file)
 
     else:
         print("\ncosine threshold is: ", cosine_threshold)
@@ -137,7 +141,11 @@ def load_hyperrectangles(dataset_name, encoding_model_name, hyperrectangles_name
                     hyperrectangle = calculate_hyperrectangle(np.array(points))
                     hyperrectangles.append(hyperrectangle)
 
+        # print(np.array(hyperrectangles).shape)
+        # np.save(f'{save_path}/{hyperrectangles_name}.npy', hyperrectangles)
         print(np.array(hyperrectangles).shape)
-        np.save(f'{save_path}/{hyperrectangles_name}.npy', hyperrectangles)
+        real_save_file = f'{save_path}/{hyperrectangles_name}.npy'
+        np.save(real_save_file, np.array(hyperrectangles))
+
 
     return hyperrectangles

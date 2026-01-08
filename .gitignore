@@ -3,6 +3,8 @@
 datasets/depression/embeddings/**
 datasets/depression/hyperrectangles/**
 datasets/depression/perturbations/**
+datasets/depression/properties/**
+
 src/__pycache__/**
 
 depression_dataset_reddit_cleaned.csv

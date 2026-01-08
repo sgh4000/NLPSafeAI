@@ -4,6 +4,11 @@ from data import load_data, load_embeddings, load_pca, prepare_data_for_training
 from perturbations import create_perturbations
 from hyperrectangles import load_hyperrectangles
 from train import train_base, train_adversarial, save_model_in_onnx
+from semantic_eval import evaluate_semantic_stability
+from plotting import plot_semantic_bar
+from plotting_semantic_cloud import plot_semantic_cloud
+from semantic_property_parser_marabou import parse_semantic_properties_marabou
+
 
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""   # force CPU
@@ -131,6 +136,12 @@ if __name__ == '__main__':
     # 1. Create SEMANTIC perturbations (using semantic_perturbation in perturbations.py)
     # 2. Compute embeddings for these semantic perturbations
     # 3. Build SEMANTIC hyperrectangles, saved as 'semantic.npy'
+    # 4. Evaluate semantic robustness
+    # 5. Plot results
+    # 6. Plot PCA semantic cloud
+    # 7. Create Marabou property files for semantic hyperrectangles
+    
+    print("\n[MAIN] Starting semantic perturbations and hyperrectangles...")
 
     semantic_perturbation_name = 'semantic'
     semantic_hyperrectangles_name = 'semantic'
@@ -153,7 +164,8 @@ if __name__ == '__main__':
         encoding_model,
         encoding_model_name,
         semantic_perturbation_name,
-        load_saved_embeddings=True,      # set to False the first time
+        #load_saved_embeddings=True,      # set to False the first time
+        load_saved_embeddings=load_saved_embeddings,
         load_saved_align_mat=load_saved_align_mat,
         data=data_semantic,
         path=path
@@ -177,7 +189,6 @@ if __name__ == '__main__':
         path=path
     )
 
-
     try:
         print("[SEMANTIC] Semantic hyperrectangles shape:", semantic_hyperrectangles.shape)
     except Exception:
@@ -185,4 +196,50 @@ if __name__ == '__main__':
 
     print("[SEMANTIC] Done. Semantic hyperrectangles saved (semantic.npy).")
 
+    # 4) Evaluate semantic robustness of base vs adversarial model
+    print("\n[EVAL] Starting semantic robustness evaluation (sampling in semantic hyperrectangles)...")
+    results = evaluate_semantic_stability(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+        path=path,
+        hyperrectangles_name=semantic_hyperrectangles_name,  # 'semantic'
+        base_onnx_path=os.path.join("results", "base.onnx"),
+        adv_onnx_path=os.path.join("results", "adversarial.onnx"),
+        num_samples_per_hr=10, # number of samples per hyperrectangle, 30 for sanity check
+        random_seed=seed,
+        # max_hr=200               # for a quicker sanity-check evaluation
+    )
+    
+    # 5) Plot results
+    plot_semantic_bar(results, save_dir="results")
+    
+    # 6) Plot PCA semantic cloud
+    plot_semantic_cloud(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+    )
+    
+    # 7) Create Marabou property files for semantic hyperrectangles
+    print("[PROP] Creating Marabou property files for semantic hyperrectangles...")
+    # Base model properties    
+    parse_semantic_properties_marabou(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+        hyperrectangles_name="semantic",
+        path=path,
+        onnx_path="src/results/base.onnx",
+        model_tag="base"
+    )
+    # Adversarial model properties
+    parse_semantic_properties_marabou(
+        dataset_name=dataset_name,
+        encoding_model_name=encoding_model_name,
+        hyperrectangles_name="semantic",
+        path=path,
+        onnx_path="src/results/adversarial.onnx",
+        model_tag="adversarial"
+    )
 
+       
+    print("[MAIN] All done.")
+    
