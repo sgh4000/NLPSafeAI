@@ -9,4 +9,16 @@ This is the GitHub repository for the CDT-D2AIR group working on the depression 
 
 This was necessary due to conflicting tensor flow versions required for training and SHAP analysis.
 
+# Dataset citation
 
+Depression: Reddit Dataset (Cleaned)
+~7000 Cleaned Reddit Labelled Dataset on Depression
+https://www.kaggle.com/datasets/infamouscoder/depression-reddit-cleaned/data
+License
+CC0: Public Domain
+
+# Related work
+
+This project builds on the NLP verification work done by Casadio et al. 
+
+[1] M. Casadio et al., “NLP verification: towards a general methodology for certifying robustness,” European Journal of Applied Mathematics, vol. 37, no. 1, pp. 180–237, 2026. doi:10.1017/S0956792525000099
