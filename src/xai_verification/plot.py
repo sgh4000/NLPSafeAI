@@ -19,11 +19,13 @@ sb.heatmap(
     cmap='viridis_r',
     xticklabels=variations,
     yticklabels=thresholds,
-    cbar_kws={"label": "Number counterexamples found with Vehicle"}
+    cbar_kws={"label": "Number of counterexamples found with Vehicle"}
 )
 
-plt.xlabel("PCA Unimportant Feature Variation")
-plt.ylabel("PCA Unimportant Feature Threshold (<)")
+plt.xlabel("PCA Unimportant Feature Variation (±)")
+plt.ylabel("PCA Unimportant Feature Threshold (<=)")
 plt.title("Heatmap of Counterexample Results")
 plt.tight_layout()
+plt.savefig("plot_heatmap.pdf", format="pdf") 
 plt.show()
+
